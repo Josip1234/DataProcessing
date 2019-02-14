@@ -3,6 +3,7 @@ package hr.josip.mydata.processing;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.util.Scanner;
 
 public class File implements FileOperations {
     private String directory;
@@ -131,5 +132,57 @@ public class File implements FileOperations {
                 ", fileName='" + fileName + '\'' +
                 ", extension='" + extension + '\'' +
                 '}';
+    }
+
+    @Override
+    public PersonalId[] enterValues(int number) {
+        PersonalId[] ids=new PersonalId[number];
+        Scanner scanner=new Scanner(System.in);
+        PersonalId id=new PersonalId();
+        for (int i=0;i<number;i++){
+            System.out.println("Enter identity card number:");
+            id.setIdentityCardNumber(scanner.nextLine());
+            System.out.println();
+            System.out.println("Enter date of expire:");
+            System.out.println("Enter day:");
+            int day=scanner.nextInt();
+            System.out.println("Enter month");
+            int month=scanner.nextInt();
+            System.out.println("Enter year:");
+            int year=scanner.nextInt();
+            id.setDateOfExpiry(new Date(day,month,year));
+            System.out.println("Enter surname:");
+            id.setSurname(scanner.nextLine());
+            System.out.println("Enter name:");
+            id.setName(scanner.nextLine());
+            System.out.println("Enter sex:");
+            id.setSex(scanner.nextLine().charAt(0));
+            System.out.println("Enter citizenship:");
+            id.setCitizenship(scanner.nextLine());
+            System.out.println("Enter date of birth:");
+            System.out.println("Enter day:");
+            day=scanner.nextInt();
+            System.out.println("Enter month");
+            month=scanner.nextInt();
+            System.out.println("Enter year:");
+            year=scanner.nextInt();
+            id.setDateOfBirth(new Date(day,month,year));
+            System.out.println("Enter residence:");
+            id.setResidence(scanner.nextLine());
+            System.out.println("Enter issued by:");
+            id.setIssuedBy(scanner.nextLine());
+            System.out.println("Enter date of issue:");
+            System.out.println("Enter day:");
+            day=scanner.nextInt();
+            System.out.println("Enter month");
+            month=scanner.nextInt();
+            System.out.println("Enter year:");
+            year=scanner.nextInt();
+            id.setDateOfIssue(new Date(day,month,year));
+            System.out.println("Enter personal identification number:");
+            id.setPersonalIdentificationNumber(scanner.nextLine());
+
+        }
+        return new PersonalId[number];
     }
 }

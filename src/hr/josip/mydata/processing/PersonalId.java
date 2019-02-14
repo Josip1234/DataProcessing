@@ -13,6 +13,9 @@ public class PersonalId {
     private Date dateOfIssue;
     private String personalIdentificationNumber;
 
+    public PersonalId() {
+    }
+
     public PersonalId(String identityCardNumber, Date dateOfExpiry, String surname, String name, char sex, String citizenship, Date dateOfBirth, String residence, String issuedBy, Date dateOfIssue, String personalIdentificationNumber) {
         this.identityCardNumber = identityCardNumber;
         this.dateOfExpiry = dateOfExpiry;
@@ -133,4 +136,5 @@ public class PersonalId {
                 ", personalIdentificationNumber=" + personalIdentificationNumber +
                 '}';
     }
+
 }
