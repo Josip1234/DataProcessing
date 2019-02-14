@@ -77,6 +77,23 @@ public class File implements FileOperations {
     }
 
     @Override
+    public void printDirectory(File fil) {
+        java.io.File file= null;
+        String[] paths;
+        try {
+            file=new java.io.File(fil.getDirectory());
+            paths=file.list();
+            for (String path:paths){
+                System.out.println(path);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
+    @Override
     public void writeToFile(Object o,File fil) {
         if(o instanceof PersonalId){
             try{
