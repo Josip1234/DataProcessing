@@ -4,13 +4,28 @@ import java.util.Scanner;
 
 public class Main {
 
+    public static void writeData(File file,PersonalId[] ids){
+        for (PersonalId idsa:ids) {
+            file.writeToFile(idsa,file);
+        }
+        System.out.println("Successfully writen data!!!");
+    }
 
-
-    public static void main(String[] args) {
+    public static void enterValues(){
+        File file=new File();
         int unos=0;
         Scanner scanner=new Scanner(System.in);
         System.out.println("How much data you want to enter?");
         unos=scanner.nextInt();
+        PersonalId[] id=file.enterValues(unos);
+        writeData(file,id);
+        System.out.println("You have entered "+unos+" values.");
+
+    }
+
+
+    public static void main(String[] args) {
+
 
 
 

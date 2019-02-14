@@ -142,7 +142,6 @@ public class File implements FileOperations {
         for (int i=0;i<number;i++){
             System.out.println("Enter identity card number:");
             id.setIdentityCardNumber(scanner.nextLine());
-            System.out.println();
             System.out.println("Enter date of expire:");
             System.out.println("Enter day:");
             int day=scanner.nextInt();
@@ -151,8 +150,10 @@ public class File implements FileOperations {
             System.out.println("Enter year:");
             int year=scanner.nextInt();
             id.setDateOfExpiry(new Date(day,month,year));
+            scanner.nextLine();
             System.out.println("Enter surname:");
-            id.setSurname(scanner.nextLine());
+            String surname=scanner.nextLine();
+            id.setSurname(surname);
             System.out.println("Enter name:");
             id.setName(scanner.nextLine());
             System.out.println("Enter sex:");
@@ -167,6 +168,7 @@ public class File implements FileOperations {
             System.out.println("Enter year:");
             year=scanner.nextInt();
             id.setDateOfBirth(new Date(day,month,year));
+            scanner.nextLine();
             System.out.println("Enter residence:");
             id.setResidence(scanner.nextLine());
             System.out.println("Enter issued by:");
@@ -179,10 +181,12 @@ public class File implements FileOperations {
             System.out.println("Enter year:");
             year=scanner.nextInt();
             id.setDateOfIssue(new Date(day,month,year));
+            scanner.nextLine();
             System.out.println("Enter personal identification number:");
             id.setPersonalIdentificationNumber(scanner.nextLine());
+            ids[i]=id;
 
         }
-        return new PersonalId[number];
+        return ids;
     }
 }
