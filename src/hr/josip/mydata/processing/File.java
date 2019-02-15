@@ -1,8 +1,6 @@
 package hr.josip.mydata.processing;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.util.Scanner;
 
 public class File implements FileOperations {
@@ -53,6 +51,9 @@ public class File implements FileOperations {
     public void setExtension(String extension) {
         this.extension = extension;
     }
+    public String getFullFileName(){
+        return getDirectory()+getSeparateBy()+getFileName()+getExtension();
+    }
 
     @Override
     public void makeDirectory(File fil) {
@@ -95,18 +96,29 @@ public class File implements FileOperations {
     }
 
     @Override
-    public void writeToFile(Object o,File fil) {
+    public void writeToTextFile(Object o, File file) {
         if(o instanceof PersonalId){
-            try{
-                ObjectOutputStream stream = new ObjectOutputStream(new FileOutputStream(fil.getDirectory()+fil.getSeparateBy()+fil.getFileName()+fil.getExtension(),true));
-                stream.writeObject(o.toString());
-                System.out.println("Data has been written!");
-                stream.close();
-
-            } catch (IOException e) {
+            try {
+                PrintWriter printWriter=new PrintWriter(new FileOutputStream(file.getFullFileName(),true));
+                printWriter.println(o);
+                printWriter.close();
+            } catch (FileNotFoundException e) {
                 e.printStackTrace();
-
             }
+        }
+    }
+
+    @Override
+    public void readFromTextFile(File file) {
+        Scanner inputStream=null;
+        try {
+            inputStream=new Scanner(new FileInputStream(file.getFullFileName()));
+            while (inputStream.hasNextLine()){
+                System.out.println(inputStream.nextLine());
+            }
+            inputStream.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
 
     }

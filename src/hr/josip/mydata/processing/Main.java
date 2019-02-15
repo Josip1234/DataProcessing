@@ -6,13 +6,14 @@ public class Main {
 
     public static void writeData(File file,PersonalId[] ids){
         for (PersonalId idsa:ids) {
-            file.writeToFile(idsa,file);
+            file.writeToTextFile(idsa,file);
         }
         System.out.println("Successfully writen data!!!");
     }
 
     public static void enterValues(){
         File file=new File();
+        file.makeDirectory(file);
         int unos=0;
         Scanner scanner=new Scanner(System.in);
         System.out.println("How much data you want to enter?");

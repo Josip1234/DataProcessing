@@ -134,7 +134,7 @@ public class PersonalId {
                 ", issuedBy='" + issuedBy + '\'' +
                 ", dateOfIssue=" + dateOfIssue.getDate() +
                 ", personalIdentificationNumber=" + personalIdentificationNumber +
-                '}';
+                '}'+",";
     }
 
 }

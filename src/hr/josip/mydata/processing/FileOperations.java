@@ -4,6 +4,7 @@ public interface FileOperations extends Id {
    void makeDirectory(File fil);
    void deleteDirectory(File fil);
    void printDirectory(File fil);
-   void writeToFile(Object o,File file);
+   void writeToTextFile(Object o,File file);
+   void readFromTextFile(File file);
    void deleteFile(File file);
 }
