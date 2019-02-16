@@ -6,5 +6,6 @@ public interface FileOperations extends Id {
    void printDirectory(File fil);
    void writeToTextFile(Object o,File file);
    void readFromTextFile(File file);
+   void readFromFile(File file,int number);
    void deleteFile(File file);
 }

@@ -109,6 +109,32 @@ public class File implements FileOperations {
     }
 
     @Override
+    public void readFromFile(File file, int number) {
+        Scanner inputStream=null;
+        try {
+            inputStream=new Scanner(new FileInputStream(file.getFullFileName()));
+
+            for (int i=0;i<number;i++){
+
+                  if(inputStream.hasNextLine()){
+                      System.out.println(inputStream.nextLine());
+                  }else {
+                      System.out.println("There is no data in this file anymore.");
+                      break;
+                  }
+
+
+
+
+            }
+            inputStream.close();
+        }catch (FileNotFoundException e){
+            e.printStackTrace();
+        }
+    }
+
+
+    @Override
     public void readFromTextFile(File file) {
         Scanner inputStream=null;
         try {
