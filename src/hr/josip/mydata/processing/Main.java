@@ -1,5 +1,8 @@
 package hr.josip.mydata.processing;
 
+import hr.josip.mydata.processing.gui.LabelFrame;
+
+import javax.swing.*;
 import java.util.Scanner;
 
 public class Main {
@@ -26,9 +29,10 @@ public class Main {
 
 
     public static void main(String[] args) {
-            File file=new File();
-            enterValues();
-
+        LabelFrame labelFrame = new LabelFrame();
+        labelFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        labelFrame.setSize(1366,768);
+        labelFrame.setVisible(true);
 
 
 

@@ -109,14 +109,16 @@ public class File implements FileOperations {
     }
 
     @Override
-    public void readFromFile(File file, int number) {
+    public String readFromFile(File file, int number) {
         Scanner inputStream=null;
+        String podatak="";
         try {
             inputStream=new Scanner(new FileInputStream(file.getFullFileName()));
 
             for (int i=0;i<number;i++){
 
                   if(inputStream.hasNextLine()){
+                      podatak+=inputStream.nextLine()+"\n";
                       System.out.println(inputStream.nextLine());
                   }else {
                       System.out.println("There is no data in this file anymore.");
@@ -131,6 +133,7 @@ public class File implements FileOperations {
         }catch (FileNotFoundException e){
             e.printStackTrace();
         }
+        return podatak;
     }
 
 
