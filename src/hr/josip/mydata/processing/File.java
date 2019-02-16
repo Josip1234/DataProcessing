@@ -222,7 +222,7 @@ public class File implements FileOperations {
             scanner.nextLine();
             System.out.println("Enter personal identification number:");
             id.setPersonalIdentificationNumber(scanner.nextLine());
-            ids[i]=id;
+            ids[i]=new PersonalId(id.getIdentityCardNumber(),id.getDateOfExpiry(),id.getSurname(),id.getName(),id.getSex(),id.getCitizenship(),id.getDateOfBirth(),id.getResidence(),id.getIssuedBy(),id.getDateOfIssue(),id.getPersonalIdentificationNumber());
 
         }
         return ids;
