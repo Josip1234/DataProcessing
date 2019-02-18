@@ -123,17 +123,17 @@ public class PersonalId {
     @Override
     public  String toString() {
         return "Osobna{" +
-                "identityCardNumber=" + identityCardNumber +
-                ", dateOfExpiry=" + dateOfExpiry.getDate() +
-                ", surname='" + surname + '\'' +
-                ", name='" + name + '\'' +
-                ", sex=" + sex +
-                ", citizenship='" + citizenship + '\'' +
-                ", dateOfBirth=" + dateOfBirth.getDate() +
-                ", residence='" + residence + '\'' +
-                ", issuedBy='" + issuedBy + '\'' +
-                ", dateOfIssue=" + dateOfIssue.getDate() +
-                ", personalIdentificationNumber=" + personalIdentificationNumber +
+                 identityCardNumber +
+                ", " + dateOfExpiry.getDate() +
+                "," + surname +
+                "," + name  +
+                ", " + sex +
+                "," + citizenship  +
+                ", " + dateOfBirth.getDate() +
+                ", " + residence  +
+                ", " + issuedBy  +
+                ", " + dateOfIssue.getDate() +
+                ", " + personalIdentificationNumber +
                 '}'+",";
     }
 

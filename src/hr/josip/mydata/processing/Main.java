@@ -1,5 +1,6 @@
 package hr.josip.mydata.processing;
 
+import hr.josip.mydata.processing.gui.GridLayoutFrame;
 import hr.josip.mydata.processing.gui.TextAreaFrame;
 
 import javax.swing.*;
@@ -29,10 +30,12 @@ public class Main {
 
 
     public static void main(String[] args) {
-        TextAreaFrame textAreaFrame = new TextAreaFrame();
-        textAreaFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        textAreaFrame.setSize(800,600);
-        textAreaFrame.setVisible(true);
+        GridLayoutFrame gridLayoutFrame=new GridLayoutFrame();
+        gridLayoutFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        gridLayoutFrame.setSize(300,200);
+        gridLayoutFrame.setVisible(true);
+
+
 
 
 
