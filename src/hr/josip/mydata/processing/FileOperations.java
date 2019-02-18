@@ -5,7 +5,7 @@ public interface FileOperations extends Id {
    void deleteDirectory(File fil);
    void printDirectory(File fil);
    void writeToTextFile(Object o,File file);
-   void readFromTextFile(File file);
+   String readFromTextFile(File file);
    String readFromFile(File file,int number);
    void deleteFile(File file);
 }

@@ -138,18 +138,20 @@ public class File implements FileOperations {
 
 
     @Override
-    public void readFromTextFile(File file) {
+    public String readFromTextFile(File file) {
         Scanner inputStream=null;
+        String data="";
         try {
             inputStream=new Scanner(new FileInputStream(file.getFullFileName()));
             while (inputStream.hasNextLine()){
-                System.out.println(inputStream.nextLine());
+                data+=inputStream.nextLine()+"\n";
+                System.out.println(data);
             }
             inputStream.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-
+      return data;
     }
 
     @Override

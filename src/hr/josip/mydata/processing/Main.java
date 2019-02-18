@@ -1,6 +1,6 @@
 package hr.josip.mydata.processing;
 
-import hr.josip.mydata.processing.gui.LabelFrame;
+import hr.josip.mydata.processing.gui.TextAreaFrame;
 
 import javax.swing.*;
 import java.util.Scanner;
@@ -29,10 +29,10 @@ public class Main {
 
 
     public static void main(String[] args) {
-        LabelFrame labelFrame = new LabelFrame();
-        labelFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        labelFrame.setSize(1366,768);
-        labelFrame.setVisible(true);
+        TextAreaFrame textAreaFrame = new TextAreaFrame();
+        textAreaFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        textAreaFrame.setSize(800,600);
+        textAreaFrame.setVisible(true);
 
 
 
