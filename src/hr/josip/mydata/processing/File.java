@@ -185,6 +185,10 @@ public class File implements FileOperations {
         for (int i=0;i<number;i++){
             System.out.println("Enter identity card number:");
             id.setIdentityCardNumber(scanner.nextLine());
+            if(id.getIdentityCardNumber().equals("")){
+                PersonalId.errors=true;
+                break;
+            }
             System.out.println("Enter date of expire:");
             System.out.println("Enter day:");
             int day=scanner.nextInt();

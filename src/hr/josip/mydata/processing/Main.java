@@ -16,6 +16,7 @@ public class Main {
     }
 
     public static void enterValues(){
+        boolean errors=false;
         File file=new File();
         file.makeDirectory(file);
         int unos=0;
@@ -23,7 +24,14 @@ public class Main {
         System.out.println("How much data you want to enter?");
         unos=scanner.nextInt();
         PersonalId[] id=file.enterValues(unos);
-        writeData(file,id);
+        errors=PersonalId.errors;
+        if(errors==true){
+            System.out.println("Data entry contains errors");
+
+        }else{
+            writeData(file,id);
+        }
+
         System.out.println("You have entered "+unos+" values.");
 
     }
@@ -36,7 +44,7 @@ public class Main {
 
 
     public static void main(String[] args) {
-
+           enterValues();
 
 
 

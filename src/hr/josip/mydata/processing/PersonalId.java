@@ -12,6 +12,7 @@ public class PersonalId {
     private String issuedBy;
     private Date dateOfIssue;
     private String personalIdentificationNumber;
+    public static boolean errors=false;
 
     public PersonalId() {
     }
@@ -37,7 +38,14 @@ public class PersonalId {
     }
 
     public void setIdentityCardNumber(String identityCardNumber) {
-        this.identityCardNumber = identityCardNumber;
+        if(identityCardNumber.length()<9){
+            System.out.println("Error!!! Identity card number must be greater then 9 ");
+            this.identityCardNumber="";
+            errors=true;
+        }else{
+            this.identityCardNumber = identityCardNumber;
+        }
+
     }
 
     public Date getDateOfExpiry() {
