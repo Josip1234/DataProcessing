@@ -13,6 +13,7 @@ public class PersonalId {
     private Date dateOfIssue;
     private String personalIdentificationNumber;
     public static boolean errors=false;
+    public int[] parseString;
 
     public PersonalId() {
     }
@@ -31,19 +32,41 @@ public class PersonalId {
         this.personalIdentificationNumber = personalIdentificationNumber;
     }
 
+    public boolean parseString(String string){
+        boolean isString=true;
+        parseString=new int[string.length()];
+        for (int count=0;count<string.length();count++){
+            try {
+                parseString[count]=Integer.parseInt(string);
+            } catch (NumberFormatException e) {
 
+                System.out.println("Error!!!! Enter something else!!!");
+                isString=false;
+                break;
+            }
+        }
+
+        return isString;
+
+    };
 
     public String getIdentityCardNumber() {
         return identityCardNumber;
     }
 
     public void setIdentityCardNumber(String identityCardNumber) {
-        if(identityCardNumber.length()<9){
-            System.out.println("Error!!! Identity card number must be greater then 9 ");
-            this.identityCardNumber="";
-            errors=true;
+        if(parseString(identityCardNumber)==true) {
+            ;
+            if (identityCardNumber.length() < 9) {
+                System.out.println("Error!!! Identity card number must be greater then 9 ");
+                this.identityCardNumber = "";
+                errors = true;
+            } else {
+                this.identityCardNumber = identityCardNumber;
+            }
         }else{
-            this.identityCardNumber = identityCardNumber;
+            System.out.println("Enter new number.");
+            errors=true;
         }
 
     }

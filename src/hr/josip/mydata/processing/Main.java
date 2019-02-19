@@ -30,9 +30,10 @@ public class Main {
 
         }else{
             writeData(file,id);
+            System.out.println("You have entered "+unos+" values.");
         }
 
-        System.out.println("You have entered "+unos+" values.");
+
 
     }
     public static void swingMenu(){
