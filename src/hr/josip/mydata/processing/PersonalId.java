@@ -19,7 +19,12 @@ public class PersonalId {
     }
 
     public PersonalId(String identityCardNumber, Date dateOfExpiry, String surname, String name, char sex, String citizenship, Date dateOfBirth, String residence, String issuedBy, Date dateOfIssue, String personalIdentificationNumber) {
-        this.identityCardNumber = identityCardNumber;
+        //if there is any errors now it has validation on contructor
+        //constructor dont get any of values in direct way, it get values from function
+        //that way it is avoided to input some wrong value if this value is not a number
+        //it will call error
+        setPersonalIdentificationNumber(identityCardNumber);
+        this.identityCardNumber = getIdentityCardNumber();
         this.dateOfExpiry = dateOfExpiry;
         this.surname = surname;
         this.name = name;

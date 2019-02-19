@@ -24,7 +24,15 @@ public class Main {
         System.out.println("How much data you want to enter?");
         unos=scanner.nextInt();
         PersonalId[] id=file.enterValues(unos);
+        //before writing to file check errors
+
         errors=PersonalId.errors;
+        //if there is any
+        //dont write to file
+        //call error
+        //if everything is ok
+        //write data
+        //call successfull message
         if(errors==true){
             System.out.println("Data entry contains errors");
 
