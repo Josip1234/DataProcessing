@@ -55,8 +55,14 @@ public class PersonalId {
     }
 
     public void setIdentityCardNumber(String identityCardNumber) {
+        ///check is input number is a number not letter
+        //if it is letter  there are errors you cannot continue input
+        //if they are all numbers continue to number of elements in string
         if(parseString(identityCardNumber)==true) {
             ;
+            //if number of elements are less than 9
+            //error it needs to be equal and more numbers written to file
+            //if everything is alright set the value
             if (identityCardNumber.length() < 9) {
                 System.out.println("Error!!! Identity card number must be greater then 9 ");
                 this.identityCardNumber = "";
