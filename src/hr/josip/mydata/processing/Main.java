@@ -27,13 +27,16 @@ public class Main {
         System.out.println("You have entered "+unos+" values.");
 
     }
-
-
-    public static void main(String[] args) {
+    public static void swingMenu(){
         GridLayoutFrame gridLayoutFrame=new GridLayoutFrame();
         gridLayoutFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         gridLayoutFrame.setSize(300,200);
         gridLayoutFrame.setVisible(true);
+    }
+
+
+    public static void main(String[] args) {
+
 
 
 
