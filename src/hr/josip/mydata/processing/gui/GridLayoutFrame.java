@@ -1,6 +1,9 @@
 package hr.josip.mydata.processing.gui;
 
+import hr.josip.mydata.processing.Date;
+import hr.josip.mydata.processing.File;
 import hr.josip.mydata.processing.PersonalId;
+import jdk.nashorn.internal.scripts.JO;
 
 import javax.swing.*;
 import java.awt.*;
@@ -58,8 +61,42 @@ public class GridLayoutFrame extends JFrame implements ActionListener {
             removeButtons();
             container.validate();
             PersonalId id=new PersonalId();
+            File file=new File();
             id.setIdentityCardNumber(JOptionPane.showInputDialog("Enter identity card number:"));
-            JOptionPane.showMessageDialog(null,id.getIdentityCardNumber()+"\t inserted successfully","Successfull insert",JOptionPane.PLAIN_MESSAGE);
+
+            String day=JOptionPane.showInputDialog("Enter day of expiry:");
+            int dayOfExpire=Integer.parseInt(day);
+            String month=JOptionPane.showInputDialog("Enter month of expire:");
+            int monthOfExpire=Integer.parseInt(month);
+            String year=JOptionPane.showInputDialog("Enter year of expire:");
+            int yearOfExpire=Integer.parseInt(year);
+            Date date=new Date(dayOfExpire,monthOfExpire,yearOfExpire);
+            id.setDateOfExpiry(date);
+            id.setSurname(JOptionPane.showInputDialog("Enter surname:"));
+            id.setName(JOptionPane.showInputDialog("Enter first name:"));
+            id.setSex(JOptionPane.showInputDialog("Enter sex:").charAt(0));
+            id.setCitizenship(JOptionPane.showInputDialog("Enter citizenship:"));
+            String dayOFBirth=JOptionPane.showInputDialog("Enter day of birth:");
+            String monthOfBirth=JOptionPane.showInputDialog("Enter month of birth:");
+            String yearOfBirth=JOptionPane.showInputDialog("Enter year of birth:");
+            int dayOfBBirth=Integer.parseInt(dayOFBirth);
+            int monthOFBirth=Integer.parseInt(monthOfBirth);
+            int yearOFBirth=Integer.parseInt(yearOfBirth);
+            date=new Date(dayOfBBirth,monthOFBirth,yearOFBirth);
+            id.setDateOfBirth(date);
+            id.setResidence(JOptionPane.showInputDialog("Enter residence:"));
+            id.setIssuedBy(JOptionPane.showInputDialog("Enter issued by:"));
+            String dayOfIssue=JOptionPane.showInputDialog("Enter day of issue:");
+            String monthOfIssue=JOptionPane.showInputDialog("Enter month of issue:");
+            String yearOfIssue=JOptionPane.showInputDialog("Enter year of issue:");
+            int dayOFIssue=Integer.parseInt(dayOfIssue);
+            int monthOFIssue=Integer.parseInt(monthOfIssue);
+            int yearOFIssue=Integer.parseInt(yearOfIssue);
+            date=new Date(dayOFIssue,monthOFIssue,yearOFIssue);
+            id.setDateOfIssue(date);
+            id.setPersonalIdentificationNumber(JOptionPane.showInputDialog("Enter personal identification number"));
+            JOptionPane.showMessageDialog(null,"Data entered successfuly","Successfull insert",JOptionPane.PLAIN_MESSAGE);
+            file.writeToTextFile(id,file);
             container.setLayout(gridLayout);
             addButtons();
             container.validate();
