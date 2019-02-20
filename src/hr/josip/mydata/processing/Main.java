@@ -54,8 +54,8 @@ public class Main {
 
 
     public static void main(String[] args) {
-        Date date=new Date(32,13,1899);
-
+        Date date=new Date(31,12,1950);
+        date.calculateLeapYear(2020);
 
 
 
