@@ -4,6 +4,7 @@ import hr.josip.mydata.processing.gui.GridLayoutFrame;
 import hr.josip.mydata.processing.gui.TextAreaFrame;
 
 import javax.swing.*;
+
 import java.util.Scanner;
 
 public class Main {
@@ -53,9 +54,7 @@ public class Main {
 
 
     public static void main(String[] args) {
-           enterValues();
-
-
+        Date date=new Date(32,13,1899);
 
 
 
