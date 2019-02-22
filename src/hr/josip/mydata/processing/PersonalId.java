@@ -14,8 +14,20 @@ public class PersonalId {
     private String personalIdentificationNumber;
     public static boolean errors=false;
     public int[] parseString;
-
+    public char[] availableValues=new char[]{'F','f','M','m'};
     public PersonalId() {
+    }
+
+    public boolean checkSex(char sex){
+        for (int count=0;count<availableValues.length;count++){
+            if(sex==availableValues[count]){
+                errors=false;
+                break;
+            }else{
+                errors=true;
+            }
+        }
+        return errors;
     }
 
     public PersonalId(String identityCardNumber, Date dateOfExpiry, String surname, String name, char sex, String citizenship, Date dateOfBirth, String residence, String issuedBy, Date dateOfIssue, String personalIdentificationNumber) {
@@ -40,7 +52,7 @@ public class PersonalId {
                 parseString[count]=Integer.parseInt(string);
             } catch (NumberFormatException e) {
 
-                System.out.println("Error!!!! Enter something else!!!");
+                System.out.println("Error!!!! Enter only numeric value!!!");
                 isString=false;
                 break;
             }
@@ -90,7 +102,8 @@ public class PersonalId {
     }
 
     public void setSurname(String surname) {
-        this.surname = surname;
+        if(surname.length()>50) System.out.println("Exceeded max limit of 50");
+        else this.surname = surname;
     }
 
     public String getName() {
@@ -98,7 +111,8 @@ public class PersonalId {
     }
 
     public void setName(String name) {
-        this.name = name;
+        if(name.length()>50) System.out.println("Exceeded max limit of 50");
+        else this.name = name;
     }
 
     public char getSex() {
@@ -106,7 +120,13 @@ public class PersonalId {
     }
 
     public void setSex(char sex) {
-        this.sex = sex;
+        errors=checkSex(sex);
+        if(errors==true){
+            System.out.println("Error!!!Wrong sex entry!!!");
+        }else{
+            this.sex = sex;
+        }
+
     }
 
     public String getCitizenship() {
@@ -114,7 +134,8 @@ public class PersonalId {
     }
 
     public void setCitizenship(String citizenship) {
-        this.citizenship = citizenship;
+        if(citizenship.length()>20) System.out.println("Exceeded limit of 20");
+        else this.citizenship = citizenship;
     }
 
     public Date getDateOfBirth() {
@@ -126,11 +147,14 @@ public class PersonalId {
     }
 
     public String getResidence() {
+
         return residence;
     }
 
     public void setResidence(String residence) {
-        this.residence = residence;
+        if(residence.length()>100) System.out.println("Exceeded limit of 100");
+        else this.residence = residence;
+
     }
 
     public String getIssuedBy() {
@@ -138,7 +162,8 @@ public class PersonalId {
     }
 
     public void setIssuedBy(String issuedBy) {
-        this.issuedBy = issuedBy;
+        if(issuedBy.length()>150) System.out.println("Exceeded limit of 150");
+        else this.issuedBy = issuedBy;
     }
 
     public Date getDateOfIssue() {
@@ -154,7 +179,32 @@ public class PersonalId {
     }
 
     public void setPersonalIdentificationNumber(String personalIdentificationNumber) {
-        this.personalIdentificationNumber = personalIdentificationNumber;
+        if(personalIdentificationNumber.length()<11) errors=true;
+        else {
+            if(checkStringValue(personalIdentificationNumber)==false){
+                this.personalIdentificationNumber = personalIdentificationNumber;
+            }else{
+                System.out.println("Personal id number is not numeric!!!");
+            }
+
+        }
+
+    }
+    //function to check values if it is greather than integer values
+    //convert strings to field of chars
+    //then convert field of chars to integer values
+    //add exception if letter is shown
+    public boolean checkStringValue(String string){
+
+
+            try {
+                int number=Integer.parseInt(string);
+            } catch (NumberFormatException e) {
+                errors=true;
+                System.out.println("This value is not numeric!!!");
+            }
+
+        return errors;
     }
 
     @Override

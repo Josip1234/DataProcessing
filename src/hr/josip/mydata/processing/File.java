@@ -218,6 +218,10 @@ public class File implements FileOperations {
             System.out.println("Enter year:");
             year=scanner.nextInt();
             id.setDateOfBirth(new Date(day,month,year));
+            if(Date.errors==true){
+                System.out.println("Wrong date entered!!!");
+                break;
+            }
             scanner.nextLine();
             System.out.println("Enter residence:");
             id.setResidence(scanner.nextLine());
@@ -231,6 +235,10 @@ public class File implements FileOperations {
             System.out.println("Enter year:");
             year=scanner.nextInt();
             id.setDateOfIssue(new Date(day,month,year));
+            if(Date.errors==true){
+                System.out.println("Wrong date entered!!!");
+                break;
+            }
             scanner.nextLine();
             System.out.println("Enter personal identification number:");
             id.setPersonalIdentificationNumber(scanner.nextLine());
