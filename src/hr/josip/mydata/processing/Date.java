@@ -55,6 +55,38 @@ public class Date {
         }
         return map;
     }
+    //Validate date after input
+    public boolean validateDate(int day,int month,int year){
+        //get map of how many days have one month
+        Map<String,Integer> map=addMonthsDays(year);
+        //set the search key to find a month with days
+        String key=findInField(month);
+        //after key is found, search a map and get the value of days
+        int daysInMonth=map.get(key);
+        //if day is greather than days in that month
+        //error
+        if(day>daysInMonth){
+            errors=true;
+            System.out.println("Error!!! That number of day is greather then sum of numbers in that month!!!");
+        }else{
+            errors=false;
+        }
+        return errors;
+    }
+    //find name of month with input parameter
+    //return name of month
+    //get map as parameter
+    public String findInField(int value){
+        String monthName="";
+        for (int count=0;count<months.length;count++){
+            if((value-1)==count){
+                monthName=months[count];
+
+                break;
+            }
+        }
+        return monthName;
+    }
 
     public boolean validateDayInput(int day){
         if(day<1 || day>31){
@@ -85,11 +117,11 @@ public class Date {
     }
 
     public Date(int day,int month,int year) {
-        if(validateDayInput(day)==false) this.day=day;
+        if((validateDayInput(day)==false)&&(validateDate(day, month, year)==false)) this.day=day;
         else System.out.println("Error!!! Wrong day entered!!!");
-        if(validateMonthInput(month)==false)this.month=month;
+        if((validateMonthInput(month)==false)&&(validateDate(day, month, year)==false))this.month=month;
         else System.out.println("Error!!! Wrong month entered!!!");
-        if(validateYearInput(year)==false) this.year=year;
+        if((validateYearInput(year)==false)&&(validateDate(day, month, year)==false)) this.year=year;
         else System.out.println("Error!!! Wrong year entered!!!");
 
         this.charBetweenNumbers='.';

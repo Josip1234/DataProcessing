@@ -196,6 +196,10 @@ public class File implements FileOperations {
             System.out.println("Enter year:");
             int year=scanner.nextInt();
             id.setDateOfExpiry(new Date(day,month,year));
+            if(Date.errors==true){
+                System.out.println("Wrong date entered!!!");
+                break;
+            }
             scanner.nextLine();
             System.out.println("Enter surname:");
             String surname=scanner.nextLine();

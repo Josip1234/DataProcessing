@@ -25,16 +25,17 @@ public class Main {
         System.out.println("How much data you want to enter?");
         unos=scanner.nextInt();
         PersonalId[] id=file.enterValues(unos);
-        //before writing to file check errors
 
-        errors=PersonalId.errors;
+
+
         //if there is any
         //dont write to file
         //call error
         //if everything is ok
         //write data
         //call successfull message
-        if(errors==true){
+        //before writing to file check errors
+        if((PersonalId.errors==true)||(Date.errors==true)){
             System.out.println("Data entry contains errors");
 
         }else{
@@ -54,8 +55,9 @@ public class Main {
 
 
     public static void main(String[] args) {
-        Date date=new Date(31,12,1950);
-        date.calculateLeapYear(2020);
+        enterValues();
+
+
 
 
 
