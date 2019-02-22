@@ -48,4 +48,13 @@ public interface FileOperations extends Id {
     * @param file
     */
    void deleteFile(File file);
+
+   /**
+    *
+    * @param PIN get unique number
+    * @param file get file
+    * @return true if updated false if not
+    */
+    boolean deleteDataFromFile(File file);
+
 }

@@ -1,6 +1,7 @@
 package hr.josip.mydata.processing;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class File implements FileOperations {
@@ -54,6 +55,8 @@ public class File implements FileOperations {
     public String getFullFileName(){
         return getDirectory()+getSeparateBy()+getFileName()+getExtension();
     }
+
+
 
     @Override
     public void makeDirectory(File fil) {
@@ -246,5 +249,21 @@ public class File implements FileOperations {
 
         }
         return ids;
+    }
+
+    @Override
+    public boolean deleteDataFromFile(File file) {
+        boolean deleted=false;
+        String rezultati=file.readFromTextFile(file);
+        rezultati="";
+        try {
+            PrintWriter printWriter=new PrintWriter(new FileOutputStream(file.getFullFileName()));
+            printWriter.println(rezultati);
+            printWriter.close();
+            deleted=true;
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return deleted;
     }
 }

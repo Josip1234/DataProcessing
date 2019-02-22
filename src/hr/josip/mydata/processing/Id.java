@@ -1,5 +1,7 @@
 package hr.josip.mydata.processing;
 
+import java.util.ArrayList;
+
 public interface Id {
     /**
      * this function asks parameters how much data you want to input
@@ -8,4 +10,5 @@ public interface Id {
      * @return personal id array
      */
     PersonalId[] enterValues(int number);
+
 }
