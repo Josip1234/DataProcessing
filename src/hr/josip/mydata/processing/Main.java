@@ -5,6 +5,9 @@ import hr.josip.mydata.processing.gui.TextAreaFrame;
 
 import javax.swing.*;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.Scanner;
 
 public class Main {
@@ -57,8 +60,7 @@ public class Main {
 
 
     public static void main(String[] args) {
-         File file = new File();
-        System.out.println(file.findObjectInFile("14111111111",file));
+
 
 
 
