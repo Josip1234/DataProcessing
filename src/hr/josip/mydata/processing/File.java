@@ -102,9 +102,11 @@ public class File implements FileOperations {
     public void writeToTextFile(Object o, File file) {
         if(o instanceof PersonalId){
             try {
-                PrintWriter printWriter=new PrintWriter(new FileOutputStream(file.getFullFileName(),true));
-                printWriter.println(o);
-                printWriter.close();
+                    PrintWriter printWriter=new PrintWriter(new FileOutputStream(file.getFullFileName(),true));
+                    printWriter.println(o);
+                    printWriter.close();
+
+
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -251,19 +253,5 @@ public class File implements FileOperations {
         return ids;
     }
 
-    @Override
-    public boolean deleteDataFromFile(File file) {
-        boolean deleted=false;
-        String rezultati=file.readFromTextFile(file);
-        rezultati="";
-        try {
-            PrintWriter printWriter=new PrintWriter(new FileOutputStream(file.getFullFileName()));
-            printWriter.println(rezultati);
-            printWriter.close();
-            deleted=true;
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        return deleted;
-    }
+
 }

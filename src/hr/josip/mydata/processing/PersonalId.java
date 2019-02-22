@@ -1,5 +1,7 @@
 package hr.josip.mydata.processing;
 
+import java.util.Arrays;
+
 public class PersonalId {
     private String identityCardNumber;
     private Date dateOfExpiry;
@@ -43,7 +45,23 @@ public class PersonalId {
         this.dateOfIssue = dateOfIssue;
         this.personalIdentificationNumber = personalIdentificationNumber;
     }
+    //This function checks if the string is numeric integer
+    public boolean parseString(String string){
+        boolean isString=true;
 
+            try {
+                Long number=Long.parseLong(string);
+            } catch (NumberFormatException e) {
+
+                System.out.println("Error!!!! Enter only numeric value!!!");
+                isString=false;
+
+            }
+
+
+        return isString;
+
+    };
 
     public String getIdentityCardNumber() {
         return identityCardNumber;
@@ -53,7 +71,7 @@ public class PersonalId {
         ///check is input number is a number not letter
         //if it is letter  there are errors you cannot continue input
         //if they are all numbers continue to number of elements in string
-        if(checkStringValue(identityCardNumber)==false) {
+        if(parseString(identityCardNumber)==true) {
             ;
             //if number of elements are less than 9
             //error it needs to be equal and more numbers written to file
@@ -191,19 +209,19 @@ public class PersonalId {
     }
 
     @Override
-    public  String toString() {
-        return  identityCardNumber +
-                ", " + dateOfExpiry.getDate() +
-                "," + surname +
-                "," + name  +
-                ", " + sex +
-                "," + citizenship  +
-                ", " + dateOfBirth.getDate() +
-                ", " + residence  +
-                ", " + issuedBy  +
-                ", " + dateOfIssue.getDate() +
-                ", " + personalIdentificationNumber +
-                ".";
+    public String toString() {
+        return "PersonalId{" +
+                "identityCardNumber='" + identityCardNumber + '\'' +
+                ", dateOfExpiry=" + dateOfExpiry.getDate() +
+                ", surname='" + surname + '\'' +
+                ", name='" + name + '\'' +
+                ", sex=" + sex +
+                ", citizenship='" + citizenship + '\'' +
+                ", dateOfBirth=" + dateOfBirth.getDate() +
+                ", residence='" + residence + '\'' +
+                ", issuedBy='" + issuedBy + '\'' +
+                ", dateOfIssue=" + dateOfIssue.getDate() +
+                ", personalIdentificationNumber='" + personalIdentificationNumber + '\'' +
+                '}';
     }
-
 }

@@ -57,8 +57,8 @@ public class Main {
 
 
     public static void main(String[] args) {
-        enterValues();
-
+      File file=new File();
+      file.deleteFile(file);
 
 
 
