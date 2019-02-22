@@ -183,6 +183,45 @@ public class File implements FileOperations {
     }
 
     @Override
+    public PersonalId findObjectInFile(String PIN,File file) {
+        PersonalId id=new PersonalId();
+        try {
+            Scanner s = new Scanner(new java.io.File(file.getFullFileName()));
+            while (s.hasNextLine()) {
+                id.setIdentityCardNumber(s.nextLine());
+                int day=s.nextInt();
+                int month=s.nextInt();
+                int year=s.nextInt();
+                id.setDateOfExpiry(new Date(day,month,year));
+                id.setSurname(s.nextLine());
+                id.setName(s.nextLine());
+                id.setSex(s.nextLine().charAt(0));
+                id.setCitizenship(s.nextLine());
+                day=s.nextInt();
+                month=s.nextInt();
+                year=s.nextInt();
+                id.setDateOfBirth(new Date(day,month,year));
+                id.setResidence(s.nextLine());
+                id.setIssuedBy(s.nextLine());
+                day=s.nextInt();
+                month=s.nextInt();
+                year=s.nextInt();
+                id.setDateOfIssue(new Date(day,month,year));
+                id.setPersonalIdentificationNumber(s.nextLine());
+
+                if(id.getPersonalIdentificationNumber().equals(PIN)){
+                    break;
+                }
+
+            }
+        }catch (Exception e){
+        }
+
+
+        return id;
+    }
+
+    @Override
     public PersonalId[] enterValues(int number) {
         PersonalId[] ids=new PersonalId[number];
         Scanner scanner=new Scanner(System.in);

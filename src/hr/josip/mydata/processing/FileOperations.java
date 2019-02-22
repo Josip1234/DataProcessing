@@ -49,6 +49,6 @@ public interface FileOperations extends Id {
     */
    void deleteFile(File file);
 
-
+   PersonalId findObjectInFile(String PIN,File file);
 
 }
