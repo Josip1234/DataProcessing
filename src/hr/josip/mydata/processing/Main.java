@@ -57,8 +57,7 @@ public class Main {
 
 
     public static void main(String[] args) {
-         PersonalId personalId=new PersonalId();
-         personalId.setPersonalIdentificationNumber("86o52601428");
+         enterValues();
 
 
 

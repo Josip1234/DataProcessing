@@ -209,8 +209,7 @@ public class PersonalId {
 
     @Override
     public  String toString() {
-        return "Osobna{" +
-                 identityCardNumber +
+        return  identityCardNumber +
                 ", " + dateOfExpiry.getDate() +
                 "," + surname +
                 "," + name  +
@@ -221,7 +220,7 @@ public class PersonalId {
                 ", " + issuedBy  +
                 ", " + dateOfIssue.getDate() +
                 ", " + personalIdentificationNumber +
-                '}'+",";
+                ",";
     }
 
 }
