@@ -43,7 +43,11 @@ public class PersonalId {
         this.dateOfIssue = dateOfIssue;
         this.personalIdentificationNumber = personalIdentificationNumber;
     }
-
+    //This function checks if the string is numeric
+    //there is a better written function at this class
+    //it only parse integer and calls an error if
+    //no numeric value is written to object
+    //this is unnessesary but it will stay like this
     public boolean parseString(String string){
         boolean isString=true;
         parseString=new int[string.length()];

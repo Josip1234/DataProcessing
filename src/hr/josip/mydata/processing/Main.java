@@ -46,6 +46,8 @@ public class Main {
 
 
     }
+    //initialize main window with main grid layout
+    //set close operations
     public static void swingMenu(){
         GridLayoutFrame gridLayoutFrame=new GridLayoutFrame();
         gridLayoutFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

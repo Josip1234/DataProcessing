@@ -87,7 +87,8 @@ public class Date {
         }
         return monthName;
     }
-
+    //this function validates day input you
+    //cant input day greather than 31 and less than zero
     public boolean validateDayInput(int day){
         if(day<1 || day>31){
             errors=true;
@@ -97,6 +98,8 @@ public class Date {
         }
         return errors;
     }
+    //this function validates month input you cant
+    //input months that are less than 1 and greather than 12
     public boolean validateMonthInput(int month){
         if(month<1 || month>12){
             errors=true;
@@ -106,6 +109,8 @@ public class Date {
         }
         return errors;
     }
+    //this function validates year
+    //you cant input year less than 1900
     public boolean validateYearInput(int year){
         if(year<1900){
             errors=true;
@@ -115,7 +120,12 @@ public class Date {
         }
         return errors;
     }
-
+    //consturctor constructs date
+    //it have a validation
+    //it will be called when date is set and input
+    //was made
+    //if there is no errors
+    //set values
     public Date(int day,int month,int year) {
         if((validateDayInput(day)==false)&&(validateDate(day, month, year)==false)) this.day=day;
         else System.out.println("Error!!! Wrong day entered!!!");

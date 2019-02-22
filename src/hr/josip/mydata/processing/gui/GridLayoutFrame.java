@@ -19,6 +19,9 @@ public class GridLayoutFrame extends JFrame implements ActionListener {
 
     private boolean toogle = true;
 
+    /**
+     * Main grid layout frame
+     */
     public GridLayoutFrame() {
         super("Main layout");
         gridLayout = new GridLayout(2, 3);
@@ -33,6 +36,10 @@ public class GridLayoutFrame extends JFrame implements ActionListener {
 
 
     }
+
+    /**
+     * add button menu into the main grid layout
+     */
     public void addButtons(){
         for (int count = 0; count < names.length; count++) {
             buttons[count] = new JButton(names[count]);
@@ -40,6 +47,7 @@ public class GridLayoutFrame extends JFrame implements ActionListener {
             add(buttons[count]);
         }
     }
+    //remove buttons from grid layout
     public void removeButtons(){
         for (int count=0;count<names.length;count++){
             remove(buttons[count]);
@@ -47,6 +55,7 @@ public class GridLayoutFrame extends JFrame implements ActionListener {
 
         }
     }
+    //simple data input
     public void insertData(){
         PersonalId id=new PersonalId();
         File file=new File();
@@ -85,6 +94,8 @@ public class GridLayoutFrame extends JFrame implements ActionListener {
         JOptionPane.showMessageDialog(null,"Data entered successfuly","Successfull insert",JOptionPane.PLAIN_MESSAGE);
         file.writeToTextFile(id,file);
     }
+    //new area frame after button is clicked
+    //it will show all the data in the new window
     public void showData(){
         TextAreaFrame textAreaFrame = new TextAreaFrame();
         textAreaFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
@@ -92,6 +103,15 @@ public class GridLayoutFrame extends JFrame implements ActionListener {
         textAreaFrame.setVisible(true);
     }
 
+    //after button is clicked, call this function
+    //if button name equals action command name
+    //show all data
+    //else
+    //input data
+    //while inputing data
+    //remove all from main grid layout
+    //insert data
+    //brng back buttons to main layout
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals(names[0])) {
