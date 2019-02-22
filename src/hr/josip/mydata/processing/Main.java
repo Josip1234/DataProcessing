@@ -57,7 +57,8 @@ public class Main {
 
 
     public static void main(String[] args) {
-
+         File file = new File();
+        System.out.println(file.findObjectInFile("14111111111",file));
 
 
 
