@@ -210,18 +210,12 @@ public class PersonalId {
 
     @Override
     public String toString() {
-        return "PersonalId{" +
-                "identityCardNumber='" + identityCardNumber + '\'' +
-                ", dateOfExpiry=" + dateOfExpiry.getDate() +
-                ", surname='" + surname + '\'' +
-                ", name='" + name + '\'' +
-                ", sex=" + sex +
-                ", citizenship='" + citizenship + '\'' +
-                ", dateOfBirth=" + dateOfBirth.getDate() +
-                ", residence='" + residence + '\'' +
-                ", issuedBy='" + issuedBy + '\'' +
-                ", dateOfIssue=" + dateOfIssue.getDate() +
-                ", personalIdentificationNumber='" + personalIdentificationNumber + '\'' +
-                '}';
+        return  getIdentityCardNumber() + "," + dateOfExpiry.getDate() +
+                "," + getSurname()+
+                "," + getName() + "," + getSex() +
+                "," + getCitizenship() +"," + dateOfBirth.getDate() +
+                "," + getResidence()+ "," + getIssuedBy()+
+                "," + dateOfIssue.getDate() +
+                ", " + getPersonalIdentificationNumber() + ",";
     }
 }

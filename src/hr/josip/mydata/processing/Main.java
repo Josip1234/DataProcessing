@@ -5,9 +5,7 @@ import hr.josip.mydata.processing.gui.TextAreaFrame;
 
 import javax.swing.*;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
+import java.io.*;
 import java.util.Scanner;
 
 public class Main {
@@ -59,13 +57,17 @@ public class Main {
     }
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+        File file=new File();
+        Date.parseDate("12.2.2020");
+        /*
+        Scanner input=new Scanner(new FileInputStream(file.getFullFileName()));
+        input.useDelimiter(","); //delimitor is one or more spaces
 
-
-
-
-
-
+        while(input.hasNext()){
+            System.out.println(input.next());
+        }
+      */
 
     }
 }

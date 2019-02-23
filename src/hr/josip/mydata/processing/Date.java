@@ -175,6 +175,65 @@ public class Date {
         this.charBetweenNumbers = charBetweenNumbers;
     }
 
+    public static void parseDate(String date){
+        String newDate="";
+        String day="";
+        String month="";
+        String year="";
+        int positionOfFirstFullStop=0;
+        int positionOfSecondFullStop=0;
+        int numOfFullStopAccessed=0;
+        for(int i=0;i<date.length();i++){
+
+            if(date.charAt(i)=='.'){
+                numOfFullStopAccessed++;
+                if(numOfFullStopAccessed==1){
+                    positionOfFirstFullStop=i;
+                    //System.out.println("Position of first full stop:"+positionOfFirstFullStop);
+                }else if(numOfFullStopAccessed==2){
+                    positionOfSecondFullStop=i;
+                    //System.out.println("Position of second full stop:"+positionOfSecondFullStop);
+                }
+                continue;
+            }else{
+                newDate+=date.charAt(i);
+            }
+
+        }
+        System.out.println(newDate);
+        String temp="";
+        for (int j=0;j<newDate.length();j++){
+
+                if(j==positionOfFirstFullStop){
+                    day=temp;
+                    temp="";
+                }else if(j==positionOfSecondFullStop) {
+                    month = temp;
+                    temp = "";
+                }else{
+                    temp+=newDate.charAt(j);
+
+                }
+
+
+
+        }
+        System.out.println(day);
+        System.out.println(month);
+        System.out.println(newDate);
+
+        for (int k=0;k<newDate.length();k++){
+            if(k==positionOfFirstFullStop){
+
+            }else if(k==positionOfSecondFullStop){
+
+            }else{
+
+            }
+        }
+
+
+    }
 
     public String getDate() {
         return String.valueOf(getDay())+getCharBetweenNumbers()+String.valueOf(getMonth())+getCharBetweenNumbers()+String.valueOf(getYear());
