@@ -1,5 +1,8 @@
 package hr.josip.mydata.processing;
 
+import java.io.IOException;
+import java.util.ArrayList;
+
 public interface FileOperations extends Id {
    /**
     * Function makes directory
@@ -49,6 +52,7 @@ public interface FileOperations extends Id {
     */
    void deleteFile(File file);
 
+   ArrayList<PersonalId> parseData(File file)  throws IOException;
 
 
 }

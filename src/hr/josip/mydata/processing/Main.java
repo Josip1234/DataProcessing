@@ -58,16 +58,11 @@ public class Main {
 
 
     public static void main(String[] args) throws IOException {
-        File file=new File();
+            File file=new File();
+            file.parseData(file);
 
-        /*
-        Scanner input=new Scanner(new FileInputStream(file.getFullFileName()));
-        input.useDelimiter(","); //delimitor is one or more spaces
 
-        while(input.hasNext()){
-            System.out.println(input.next());
-        }
-      */
+
 
     }
 }

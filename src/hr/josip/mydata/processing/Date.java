@@ -1,5 +1,6 @@
 package hr.josip.mydata.processing;
 
+import javax.jnlp.IntegrationService;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -175,7 +176,13 @@ public class Date {
         this.charBetweenNumbers = charBetweenNumbers;
     }
 
-    public static void parseDate(String date){
+
+    @Override
+    public String toString() {
+        return String.valueOf(getDay())+getCharBetweenNumbers()+String.valueOf(getMonth())+getCharBetweenNumbers()+String.valueOf(getYear());
+    }
+
+    public static Date parseDate(String date){
         String newDate="";
         String day="";
         String month="";
@@ -200,7 +207,7 @@ public class Date {
             }
 
         }
-        System.out.println(newDate);
+
         String temp="";
         for (int j=0;j<newDate.length();j++){
 
@@ -216,7 +223,7 @@ public class Date {
 
 
         }
-        System.out.println(day);
+
         for(int mon=positionOfFirstFullStop;mon<newDate.length();mon++){
           if(mon==positionOfSecondFullStop-1){
               temp="";
@@ -228,16 +235,19 @@ public class Date {
           }
 
         }
-        System.out.println(month);
+
 
 
         for (int count=positionOfSecondFullStop-1;count<newDate.length();count++){
-            year+=newDate.charAt(count);
+
+                year+=newDate.charAt(count);
+
         }
-        System.out.println(year);
 
+        Date date1=new Date(Integer.parseInt(day),Integer.parseInt(month), Integer.parseInt(year));
+        System.out.println(date1.getDate());
 
-
+      return date1;
 
     }
 

@@ -10,7 +10,31 @@ public class File implements FileOperations {
     private String fileName;
     private String extension;
 
-    public File(String directory,  String fileName, String extension) {
+    @Override
+    public ArrayList<PersonalId> parseData(File file) throws IOException {
+        ArrayList<PersonalId> id=new ArrayList<PersonalId>();
+        PersonalId personalId=new PersonalId();
+        Scanner input=new Scanner(new FileInputStream(file.getFullFileName()));
+        input.useDelimiter(","); //delimitor is one or more spaces
+
+        while(input.hasNext()){
+            personalId.setIdentityCardNumber(input.next());
+            personalId.setDateOfBirth(Date.parseDate(input.next()));
+            personalId.setSurname(input.next());
+            personalId.setName(input.next());
+            personalId.setSex(input.next().charAt(0));
+            personalId.setCitizenship(input.next());
+            personalId.setDateOfBirth(Date.parseDate(input.next()));
+            System.out.println(personalId.getIdentityCardNumber()+" "+personalId.getDateOfBirth()+" "+personalId.getSurname()+
+                    " "+ personalId.getName()+" "+personalId.getSex()+" "+personalId.getCitizenship()+" "+
+                    personalId.getDateOfBirth());
+
+             break;
+        }
+        return null;
+    }
+
+    public File(String directory, String fileName, String extension) {
         this.directory = directory;
         this.separateBy = "/";
         this.fileName = fileName;

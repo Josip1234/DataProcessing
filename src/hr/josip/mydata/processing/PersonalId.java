@@ -51,6 +51,7 @@ public class PersonalId {
 
             try {
                 Long number=Long.parseLong(string);
+                isString=true;
             } catch (NumberFormatException e) {
 
                 System.out.println("Error!!!! Enter only numeric value!!!");
