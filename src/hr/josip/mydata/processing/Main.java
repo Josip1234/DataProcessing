@@ -59,7 +59,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         File file=new File();
-        Date.parseDate("12.2.2020");
+        Date.parseDate("10.5.2020");
         /*
         Scanner input=new Scanner(new FileInputStream(file.getFullFileName()));
         input.useDelimiter(","); //delimitor is one or more spaces

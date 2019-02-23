@@ -207,10 +207,7 @@ public class Date {
                 if(j==positionOfFirstFullStop){
                     day=temp;
                     temp="";
-                }else if(j==positionOfSecondFullStop) {
-                    month = temp;
-                    temp = "";
-                }else{
+                } else{
                     temp+=newDate.charAt(j);
 
                 }
@@ -219,18 +216,16 @@ public class Date {
 
         }
         System.out.println(day);
+
         System.out.println(month);
-        System.out.println(newDate);
 
-        for (int k=0;k<newDate.length();k++){
-            if(k==positionOfFirstFullStop){
 
-            }else if(k==positionOfSecondFullStop){
-
-            }else{
-
-            }
+        for (int count=positionOfSecondFullStop-1;count<newDate.length();count++){
+            year+=newDate.charAt(count);
         }
+        System.out.println(year);
+
+
 
 
     }
