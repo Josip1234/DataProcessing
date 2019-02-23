@@ -217,6 +217,6 @@ public class PersonalId {
                 "," + getCitizenship() +"," + dateOfBirth.getDate() +
                 "," + getResidence()+ "," + getIssuedBy()+
                 "," + dateOfIssue.getDate() +
-                ", " + getPersonalIdentificationNumber() + ",";
+                "," + getPersonalIdentificationNumber() + ",";
     }
 }

@@ -25,11 +25,13 @@ public class File implements FileOperations {
             personalId.setSex(input.next().charAt(0));
             personalId.setCitizenship(input.next());
             personalId.setDateOfBirth(Date.parseDate(input.next()));
-            System.out.println(personalId.getIdentityCardNumber()+" "+personalId.getDateOfBirth()+" "+personalId.getSurname()+
-                    " "+ personalId.getName()+" "+personalId.getSex()+" "+personalId.getCitizenship()+" "+
-                    personalId.getDateOfBirth());
+            personalId.setResidence(input.next()+","+input.next());
+            personalId.setIssuedBy(input.next());
+            personalId.setDateOfIssue(Date.parseDate(input.next()));
+            personalId.setPersonalIdentificationNumber(input.next());
 
-             break;
+
+
         }
         return null;
     }
