@@ -1,6 +1,7 @@
 package hr.josip.mydata.processing;
 
 import java.io.*;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -17,22 +18,39 @@ public class File implements FileOperations {
         Scanner input=new Scanner(new FileInputStream(file.getFullFileName()));
         input.useDelimiter(","); //delimitor is one or more spaces
 
-        while(input.hasNext()){
-            personalId.setIdentityCardNumber(input.next());
-            personalId.setDateOfBirth(Date.parseDate(input.next()));
-            personalId.setSurname(input.next());
-            personalId.setName(input.next());
-            personalId.setSex(input.next().charAt(0));
-            personalId.setCitizenship(input.next());
-            personalId.setDateOfBirth(Date.parseDate(input.next()));
-            personalId.setResidence(input.next()+","+input.next());
-            personalId.setIssuedBy(input.next());
-            personalId.setDateOfIssue(Date.parseDate(input.next()));
-            personalId.setPersonalIdentificationNumber(input.next());
+        try {
+            while(input.hasNext()){
+
+                personalId.setIdentityCardNumber(input.next().trim());
+                personalId.setDateOfBirth(Date.parseDate(input.next()));
+                personalId.setSurname(input.next());
+                personalId.setName(input.next());
+                personalId.setSex(input.next().charAt(0));
+                personalId.setCitizenship(input.next());
+                personalId.setDateOfBirth(Date.parseDate(input.next()));
+                personalId.setResidence(input.next()+","+input.next());
+                personalId.setIssuedBy(input.next());
+                personalId.setDateOfIssue(Date.parseDate(input.next()));
+                personalId.setPersonalIdentificationNumber(input.next());
+                id.add(personalId);
+                personalId=new PersonalId();
 
 
+
+
+
+
+            }
+        } catch (Exception e) {
 
         }
+        input.close();
+
+        for (PersonalId ids:id
+             ) {
+            System.out.println(ids.getIdentityCardNumber());
+        }
+
         return null;
     }
 

@@ -6,6 +6,7 @@ import hr.josip.mydata.processing.gui.TextAreaFrame;
 import javax.swing.*;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -58,8 +59,10 @@ public class Main {
 
 
     public static void main(String[] args) throws IOException {
+
             File file=new File();
-            file.parseData(file);
+            ArrayList<PersonalId> id=file.parseData(file);
+
 
 
 
