@@ -22,7 +22,7 @@ public class File implements FileOperations {
             while(input.hasNext()){
 
                 personalId.setIdentityCardNumber(input.next().trim());
-                personalId.setDateOfBirth(Date.parseDate(input.next()));
+                personalId.setDateOfExpiry(Date.parseDate(input.next()));
                 personalId.setSurname(input.next());
                 personalId.setName(input.next());
                 personalId.setSex(input.next().charAt(0));
@@ -32,6 +32,7 @@ public class File implements FileOperations {
                 personalId.setIssuedBy(input.next());
                 personalId.setDateOfIssue(Date.parseDate(input.next()));
                 personalId.setPersonalIdentificationNumber(input.next());
+
                 id.add(personalId);
                 personalId=new PersonalId();
 

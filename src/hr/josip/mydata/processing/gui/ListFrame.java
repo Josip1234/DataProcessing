@@ -12,35 +12,25 @@ import java.util.ArrayList;
 public class ListFrame extends JFrame {
     private final JList<String> list;
     private String[] listOfNames=getNames();
-
+    private PersonalId[] details;
 
     public  String[] getNames() throws IOException {
 
         File file=new File();
         ArrayList<PersonalId> personalIds=file.parseData(file);
+
         int index=0;
         String[] array=new String[personalIds.size()];
+        details=new PersonalId[personalIds.size()];
         for (PersonalId id:personalIds) {
             array[index]=id.getName()+" "+id.getSurname();
+            System.out.println(id.getDateOfExpiry());
+            details[index]=id;
             index=index+1;
         }
        return  array;
     }
-    public PersonalId findByNameSurname(String name,String surname) throws IOException {
 
-        File file=new File();
-        ArrayList<PersonalId> ids=file.parseData(file);
-        PersonalId ids1=new PersonalId();
-
-        for (PersonalId id:ids
-             ) {
-            if((name.equals(id.getName()))&&(surname.equals(id.getSurname()))){
-                ids1=id;
-            }
-
-        }
-        return ids1;
-    }
 
     public ListFrame() throws IOException {
         super("List of persons");
@@ -53,6 +43,29 @@ public class ListFrame extends JFrame {
         list.addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
+                System.out.println(details[list.getSelectedIndex()].getIdentityCardNumber());
+                System.out.println(details[list.getSelectedIndex()].getDateOfExpiry());
+                System.out.println(details[list.getSelectedIndex()].getSurname());
+                System.out.println(details[list.getSelectedIndex()].getName());
+                System.out.println(details[list.getSelectedIndex()].getSex());
+                System.out.println(details[list.getSelectedIndex()].getCitizenship());
+                System.out.println(details[list.getSelectedIndex()].getDateOfBirth());
+                System.out.println(details[list.getSelectedIndex()].getResidence());
+                System.out.println(details[list.getSelectedIndex()].getIssuedBy());
+                System.out.println(details[list.getSelectedIndex()].getDateOfIssue());
+                System.out.println(details[list.getSelectedIndex()].getPersonalIdentificationNumber());
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
