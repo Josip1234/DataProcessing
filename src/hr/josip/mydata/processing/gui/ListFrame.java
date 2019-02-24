@@ -45,10 +45,20 @@ public class ListFrame extends JFrame {
         list.addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
-                TextAreaList textAreaFrame = new TextAreaList(details,list.getSelectedIndex());
-                textAreaFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-                textAreaFrame.setSize(1366, 768);
-                textAreaFrame.setVisible(true);
+                if (e.getValueIsAdjusting() == false) {
+
+                    if (list.getSelectedIndex() == -1) {
+                        //No selection, disable fire button.
+
+
+                    } else {
+                        TextAreaList textAreaFrame = new TextAreaList(details,list.getSelectedIndex());
+                        textAreaFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+                        textAreaFrame.setSize(1366, 768);
+                        textAreaFrame.setVisible(true);
+                    }
+                }
+
 
 
 
