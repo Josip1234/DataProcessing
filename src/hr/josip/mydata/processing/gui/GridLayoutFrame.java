@@ -101,6 +101,7 @@ public class GridLayoutFrame extends JFrame implements ActionListener {
         TextAreaFrame textAreaFrame = new TextAreaFrame();
         textAreaFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         textAreaFrame.setSize(1366, 768);
+
         textAreaFrame.setVisible(true);
     }
 

@@ -6,6 +6,7 @@ import hr.josip.mydata.processing.PersonalId;
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -13,6 +14,7 @@ public class ListFrame extends JFrame {
     private final JList<String> list;
     private String[] listOfNames=getNames();
     private PersonalId[] details;
+
 
     public  String[] getNames() throws IOException {
 
@@ -43,17 +45,10 @@ public class ListFrame extends JFrame {
         list.addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
-                System.out.println(details[list.getSelectedIndex()].getIdentityCardNumber());
-                System.out.println(details[list.getSelectedIndex()].getDateOfExpiry());
-                System.out.println(details[list.getSelectedIndex()].getSurname());
-                System.out.println(details[list.getSelectedIndex()].getName());
-                System.out.println(details[list.getSelectedIndex()].getSex());
-                System.out.println(details[list.getSelectedIndex()].getCitizenship());
-                System.out.println(details[list.getSelectedIndex()].getDateOfBirth());
-                System.out.println(details[list.getSelectedIndex()].getResidence());
-                System.out.println(details[list.getSelectedIndex()].getIssuedBy());
-                System.out.println(details[list.getSelectedIndex()].getDateOfIssue());
-                System.out.println(details[list.getSelectedIndex()].getPersonalIdentificationNumber());
+                TextAreaList textAreaFrame = new TextAreaList(details,list.getSelectedIndex());
+                textAreaFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+                textAreaFrame.setSize(1366, 768);
+                textAreaFrame.setVisible(true);
 
 
 
