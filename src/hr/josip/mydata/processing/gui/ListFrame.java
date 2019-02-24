@@ -26,6 +26,21 @@ public class ListFrame extends JFrame {
         }
        return  array;
     }
+    public PersonalId findByNameSurname(String name,String surname) throws IOException {
+
+        File file=new File();
+        ArrayList<PersonalId> ids=file.parseData(file);
+        PersonalId ids1=new PersonalId();
+
+        for (PersonalId id:ids
+             ) {
+            if((name.equals(id.getName()))&&(surname.equals(id.getSurname()))){
+                ids1=id;
+            }
+
+        }
+        return ids1;
+    }
 
     public ListFrame() throws IOException {
         super("List of persons");
@@ -38,6 +53,9 @@ public class ListFrame extends JFrame {
         list.addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
+
+
+
 
 
             }

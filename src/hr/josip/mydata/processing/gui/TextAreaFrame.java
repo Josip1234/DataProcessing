@@ -6,6 +6,7 @@ import javax.swing.*;
 
 public class TextAreaFrame extends JFrame {
     private final JTextArea textArea;
+
     //this function read data from file
     //and shows in  the new window
     //trough text area

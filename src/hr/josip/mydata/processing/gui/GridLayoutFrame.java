@@ -127,6 +127,7 @@ public class GridLayoutFrame extends JFrame implements ActionListener {
             addButtons();
             container.validate();
         }else if(e.getActionCommand().equals(names[2])){
+
             ListFrame listFrame= null;
             try {
                 listFrame = new ListFrame();
