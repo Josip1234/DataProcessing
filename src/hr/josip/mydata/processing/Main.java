@@ -59,9 +59,11 @@ public class Main {
 
 
     public static void main(String[] args) throws IOException {
-
+            PersonalId id=new PersonalId();
             File file=new File();
-            ArrayList<PersonalId> id=file.parseData(file);
+        id=file.findItem("11",file);
+        System.out.println(id.getIdentityCardNumber());
+
 
 
 

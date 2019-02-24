@@ -46,12 +46,37 @@ public class File implements FileOperations {
         }
         input.close();
 
-        for (PersonalId ids:id
-             ) {
-            System.out.println(ids.getIdentityCardNumber());
-        }
 
-        return null;
+
+        return id;
+    }
+
+    @Override
+    public PersonalId findItem(String numberId,File files)  {
+        PersonalId ids=new PersonalId();
+        try {
+            ArrayList<PersonalId> list=parseData(files);
+            for (PersonalId id:list) {
+                if(numberId.equals(id.getIdentityCardNumber())){
+                    ids.setPersonalIdentificationNumber(id.getPersonalIdentificationNumber());
+                    ids.setDateOfIssue(id.getDateOfIssue());
+                    ids.setIssuedBy(id.getIssuedBy());
+                    ids.setResidence(id.getResidence());
+                    ids.setDateOfBirth(id.getDateOfBirth());
+                    ids.setCitizenship(id.getCitizenship());
+                    ids.setSex(id.getSex());
+                    ids.setName(id.getName());
+                    ids.setSurname(id.getSurname());
+                    ids.setIdentityCardNumber(id.getIdentityCardNumber());
+                    ids.setDateOfExpiry(id.getDateOfExpiry());
+                    break;
+
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return ids;
     }
 
     public File(String directory, String fileName, String extension) {

@@ -10,5 +10,6 @@ public interface Id {
      * @return personal id array
      */
     PersonalId[] enterValues(int number);
+    PersonalId findItem(String numberId,File file);
 
 }
