@@ -9,13 +9,14 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 public class GridLayoutFrame extends JFrame implements ActionListener {
     private final Container container;
     private final GridLayout gridLayout;
     private final GridLayout gridLayout2;
     private final JButton[] buttons;
-    private static final String[] names = {"Show all data", "Insert new person"};
+    private static final String[] names = {"Show all data", "Insert new person","Choose person"};
 
     private boolean toogle = true;
 
@@ -125,6 +126,17 @@ public class GridLayoutFrame extends JFrame implements ActionListener {
             container.setLayout(gridLayout);
             addButtons();
             container.validate();
+        }else if(e.getActionCommand().equals(names[2])){
+            ListFrame listFrame= null;
+            try {
+                listFrame = new ListFrame();
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+            listFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+            listFrame.setSize(350,150);
+            listFrame.setVisible(true);
+
         }
 
     }
