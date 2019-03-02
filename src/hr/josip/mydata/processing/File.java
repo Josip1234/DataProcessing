@@ -301,6 +301,9 @@ public class File implements FileOperations {
             scanner.nextLine();
             System.out.println("Enter residence:");
             id.setResidence(scanner.nextLine());
+            if(PersonalId.errors==true){
+                break;
+            }
             System.out.println("Enter issued by:");
             id.setIssuedBy(scanner.nextLine());
             System.out.println("Enter date of issue:");

@@ -153,9 +153,37 @@ public class PersonalId {
         return residence;
     }
 
+    /**
+     *
+     *
+     * @param string
+     * @return true if there is a coma in string
+     * string should have at least one coma because of
+     * parse string function residence is being concatinated
+     * by parser
+     */
+    public boolean doesStringHaveOneComa(String string){
+        boolean coma=false;
+        for (int i=0;i<string.length();i++){
+            if(string.charAt(i)==','){
+                coma=true;
+                break;
+            }else{
+                coma=false;
+            }
+        }
+        return coma;
+    }
     public void setResidence(String residence) {
+
         if(residence.length()>100) System.out.println("Exceeded limit of 100");
-        else this.residence = residence;
+        else{
+            if(doesStringHaveOneComa(residence)==true)this.residence = residence;
+            else errors=true;
+        }
+
+
+
 
     }
 
