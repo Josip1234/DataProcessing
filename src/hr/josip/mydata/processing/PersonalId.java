@@ -46,21 +46,22 @@ public class PersonalId {
         this.personalIdentificationNumber = personalIdentificationNumber;
     }
     //This function checks if the string is numeric integer
-    public boolean parseString(String string){
-        boolean isString=true;
+    public boolean isLongNumber(String string){
+        boolean isLongNumber=false;
 
             try {
                 Long number=Long.parseLong(string);
+                isLongNumber=true;
 
             } catch (NumberFormatException e) {
 
-                System.out.println("Error!!!! Enter only numeric value!!!");
-                isString=false;
+
+                isLongNumber=false;
 
             }
 
 
-        return isString;
+        return isLongNumber;
 
     };
 
@@ -73,7 +74,7 @@ public class PersonalId {
         ///check is input number is a number not letter
         //if it is letter  there are errors you cannot continue input
         //if they are all numbers continue to number of elements in string
-        if(parseString(identityCardNumber)==true) {
+        if(isLongNumber(identityCardNumber)==true) {
             ;
             //if number of elements are less than 9
             //error it needs to be equal and more numbers written to file
