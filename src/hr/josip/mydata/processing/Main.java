@@ -14,9 +14,16 @@ public class Main {
 
     public static void writeData(File file,PersonalId[] ids){
         for (PersonalId idsa:ids) {
-            file.writeToTextFile(idsa,file);
+            if(file.findItem(idsa.getIdentityCardNumber(),file).getIdentityCardNumber().equals(idsa.getIdentityCardNumber())){
+                System.out.println("There is duplicate number in txt file. Aborting operation.");
+                break;
+
+            }else{
+                file.writeToTextFile(idsa,file);
+                System.out.println("Successfully writen data!!!");
+            }
         }
-        System.out.println("Successfully writen data!!!");
+
     }
 
     public static void enterValues(){
