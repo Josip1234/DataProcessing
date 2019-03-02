@@ -14,11 +14,14 @@ public class Main {
 
     public static void writeData(File file,PersonalId[] ids){
         for (PersonalId idsa:ids) {
-            if(file.findItem(idsa.getIdentityCardNumber(),file).getIdentityCardNumber().equals(idsa.getIdentityCardNumber())){
+            if(file.findItem(idsa.getIdentityCardNumber(),file)==true){
                 System.out.println("There is duplicate number in txt file. Aborting operation.");
-                break;
+                continue;
 
-            }else{
+            } else if(file.findItemByPIN(idsa.getPersonalIdentificationNumber(),file)==true){
+                System.out.println("There is duplicate number in txt file. Aborting operation.");
+                continue;
+            } else{
                 file.writeToTextFile(idsa,file);
                 System.out.println("Successfully writen data!!!");
             }

@@ -53,8 +53,9 @@ public class File implements FileOperations {
     }
 
     @Override
-    public PersonalId findItem(String numberId,File files)  {
+    public boolean findItem(String numberId,File files)  {
         PersonalId ids=new PersonalId();
+        boolean found=false;
         try {
             ArrayList<PersonalId> list=parseData(files);
             for (PersonalId id:list) {
@@ -70,6 +71,7 @@ public class File implements FileOperations {
                     ids.setSurname(id.getSurname());
                     ids.setIdentityCardNumber(id.getIdentityCardNumber());
                     ids.setDateOfExpiry(id.getDateOfExpiry());
+                    found=true;
                     break;
 
                 }
@@ -77,11 +79,12 @@ public class File implements FileOperations {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return ids;
+        return found;
     }
     @Override
-    public PersonalId findItemByPIN(String PIN,File files)  {
+    public boolean findItemByPIN(String PIN,File files)  {
         PersonalId ids=new PersonalId();
+        boolean found=false;
         try {
             ArrayList<PersonalId> list=parseData(files);
             for (PersonalId id:list) {
@@ -97,6 +100,7 @@ public class File implements FileOperations {
                     ids.setSurname(id.getSurname());
                     ids.setIdentityCardNumber(id.getIdentityCardNumber());
                     ids.setDateOfExpiry(id.getDateOfExpiry());
+                    found=true;
                     break;
 
                 }
@@ -104,7 +108,7 @@ public class File implements FileOperations {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return ids;
+        return found;
     }
 
     public File(String directory, String fileName, String extension) {

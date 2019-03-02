@@ -10,7 +10,7 @@ public interface Id {
      * @return personal id array
      */
     PersonalId[] enterValues(int number);
-    PersonalId findItem(String numberId,File file);
-    PersonalId findItemByPIN(String PIN,File file);
+    boolean findItem(String numberId,File file);
+    boolean findItemByPIN(String PIN,File file);
 
 }
