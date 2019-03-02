@@ -2,6 +2,7 @@ package hr.josip.mydata.processing;
 
 import hr.josip.mydata.processing.gui.GridLayoutFrame;
 import hr.josip.mydata.processing.gui.TextAreaFrame;
+import sun.dc.path.PathError;
 
 import javax.swing.*;
 
@@ -27,6 +28,7 @@ public class Main {
         System.out.println("How much data you want to enter?");
         unos=scanner.nextInt();
         PersonalId[] id=file.enterValues(unos);
+
 
 
 

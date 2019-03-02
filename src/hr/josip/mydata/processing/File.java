@@ -79,6 +79,33 @@ public class File implements FileOperations {
         }
         return ids;
     }
+    @Override
+    public PersonalId findItemByPIN(String PIN,File files)  {
+        PersonalId ids=new PersonalId();
+        try {
+            ArrayList<PersonalId> list=parseData(files);
+            for (PersonalId id:list) {
+                if(PIN.equals(id.getPersonalIdentificationNumber())){
+                    ids.setPersonalIdentificationNumber(id.getPersonalIdentificationNumber());
+                    ids.setDateOfIssue(id.getDateOfIssue());
+                    ids.setIssuedBy(id.getIssuedBy());
+                    ids.setResidence(id.getResidence());
+                    ids.setDateOfBirth(id.getDateOfBirth());
+                    ids.setCitizenship(id.getCitizenship());
+                    ids.setSex(id.getSex());
+                    ids.setName(id.getName());
+                    ids.setSurname(id.getSurname());
+                    ids.setIdentityCardNumber(id.getIdentityCardNumber());
+                    ids.setDateOfExpiry(id.getDateOfExpiry());
+                    break;
+
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return ids;
+    }
 
     public File(String directory, String fileName, String extension) {
         this.directory = directory;
@@ -258,6 +285,8 @@ public class File implements FileOperations {
         PersonalId[] ids=new PersonalId[number];
         Scanner scanner=new Scanner(System.in);
         PersonalId id=new PersonalId();
+        PersonalId idsa=new PersonalId();
+        File file=new File();
         for (int i=0;i<number;i++){
             System.out.println("Enter identity card number:");
             id.setIdentityCardNumber(scanner.nextLine());

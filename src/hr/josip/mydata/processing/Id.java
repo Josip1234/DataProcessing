@@ -11,5 +11,6 @@ public interface Id {
      */
     PersonalId[] enterValues(int number);
     PersonalId findItem(String numberId,File file);
+    PersonalId findItemByPIN(String PIN,File file);
 
 }

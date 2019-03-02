@@ -69,6 +69,7 @@ public class PersonalId {
     }
 
     public void setIdentityCardNumber(String identityCardNumber) {
+        File file=new File();
         ///check is input number is a number not letter
         //if it is letter  there are errors you cannot continue input
         //if they are all numbers continue to number of elements in string
