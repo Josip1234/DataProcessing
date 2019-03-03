@@ -81,6 +81,26 @@ public class File implements FileOperations {
         }
         return found;
     }
+
+    @Override
+    public boolean copyData(File from, File to) throws FileNotFoundException {
+        boolean copied=false;
+        PrintWriter printWriter=new PrintWriter(new FileOutputStream(to.getFullFileName(),true));
+        try {
+            ArrayList<PersonalId> id=parseData(from);
+            for (PersonalId ids:id) {
+               printWriter.println(ids);
+            }
+            printWriter.close();
+            copied=true;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+        return copied;
+    }
+
     @Override
     public boolean findItemByPIN(String PIN,File files)  {
         PersonalId ids=new PersonalId();
@@ -262,6 +282,7 @@ public class File implements FileOperations {
 
     @Override
     public void deleteFile(File fil) {
+
         java.io.File file = new java.io.File(fil.getDirectory()+fil.getSeparateBy()+fil.getFileName()+fil.getExtension());
         if(file.exists()){
             file.delete();

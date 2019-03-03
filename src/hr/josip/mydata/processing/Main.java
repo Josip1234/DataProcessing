@@ -71,7 +71,10 @@ public class Main {
 
 
     public static void main(String[] args) throws IOException {
-       enterValues();
+       File file=new File();
+       File copyFile=new File("copyfile","copyData",".txt");
+        System.out.println(copyFile.copyData(file,copyFile));
+
 
 
 

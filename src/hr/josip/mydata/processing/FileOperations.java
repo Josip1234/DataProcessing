@@ -1,5 +1,6 @@
 package hr.josip.mydata.processing;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -53,6 +54,7 @@ public interface FileOperations extends Id {
    void deleteFile(File file);
 
    ArrayList<PersonalId> parseData(File file)  throws IOException;
+   boolean copyData(File frrom,File to) throws FileNotFoundException;
 
 
 }
