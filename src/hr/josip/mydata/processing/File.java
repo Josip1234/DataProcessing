@@ -83,6 +83,35 @@ public class File implements FileOperations {
     }
 
     @Override
+    public PersonalId findObject(String numberId,File files)  {
+        PersonalId ids=new PersonalId();
+        boolean found=false;
+        try {
+            ArrayList<PersonalId> list=parseData(files);
+            for (PersonalId id:list) {
+                if(numberId.equals(id.getIdentityCardNumber())){
+                    ids.setPersonalIdentificationNumber(id.getPersonalIdentificationNumber());
+                    ids.setDateOfIssue(id.getDateOfIssue());
+                    ids.setIssuedBy(id.getIssuedBy());
+                    ids.setResidence(id.getResidence());
+                    ids.setDateOfBirth(id.getDateOfBirth());
+                    ids.setCitizenship(id.getCitizenship());
+                    ids.setSex(id.getSex());
+                    ids.setName(id.getName());
+                    ids.setSurname(id.getSurname());
+                    ids.setIdentityCardNumber(id.getIdentityCardNumber());
+                    ids.setDateOfExpiry(id.getDateOfExpiry());
+                    found=true;
+                    break;
+
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return ids;
+    }
+    @Override
     public boolean copyData(File from, File to) throws FileNotFoundException {
         boolean copied=false;
         PrintWriter printWriter=new PrintWriter(new FileOutputStream(to.getFullFileName(),true));
@@ -99,6 +128,137 @@ public class File implements FileOperations {
 
 
         return copied;
+    }
+
+    /**
+     *
+     * @param identityCardNumber
+     * @param personalId
+     * @param upd
+     * @return true if update was successfull
+     * @throws IOException if file not found
+     * first function fetch all the data from file to array
+     * creates new array to store new updated values and other values added from file
+     * find the object in data by identity card number
+     * if object part is empty do not update anything
+     * if object part is not empty string or 0 day
+     * update new object fetched by function
+     * when new values are set
+     * for each object in array list
+     * add to new list new object if it is equal to id card number
+     * else add other data from file
+     * delete file
+     * when new list is made
+     * every object write to external file
+     */
+    @Override
+    public boolean updateData(String identityCardNumber,PersonalId personalId, File upd) throws IOException {
+        boolean success=false;
+        String empty="";
+        ArrayList<PersonalId> personalIds=parseData(upd);
+        ArrayList<PersonalId> updatedData=new ArrayList<PersonalId>();
+        PersonalId updatedValues=findObject(identityCardNumber,upd);
+        System.out.println("Old object:"+updatedValues);
+        if(personalId.getIdentityCardNumber().equals(empty)){
+
+        }else{
+            System.out.println("Identify card number cannot be updated.");
+
+            success=false;
+        }
+        if(personalId.getDateOfExpiry().getDay()==0){
+
+        }else{
+
+            updatedValues.setDateOfExpiry(personalId.getDateOfExpiry());
+            System.out.println("Updated date. ID now expires at"+personalId.getDateOfExpiry());
+            success=true;
+        }
+        if(personalId.getSurname().equals(empty)){
+
+        }else{
+
+            updatedValues.setSurname(personalId.getSurname());
+            System.out.println("Updated surname");
+            success=true;
+        }
+        if(personalId.getName().equals(empty)){
+
+        }else{
+
+            updatedValues.setName(personalId.getName());
+            System.out.println("Your name has been updated");
+            success=true;
+        }
+        if(personalId.getSex()==' '){
+
+        }else{
+
+            updatedValues.setSex(personalId.getSex());
+            System.out.println("Your sex has been changed.");
+            success=true;
+        }
+        if(personalId.getCitizenship().equals(empty)){
+
+        }else{
+
+            updatedValues.setCitizenship(personalId.getCitizenship());
+            System.out.println("Your citizenship has been updated.");
+            success=true;
+        }
+        if(personalId.getDateOfBirth().equals(empty)){
+
+        }else{
+
+            System.out.println("Your date of birth cannot be updated.");
+            success=false;
+        }
+        if(personalId.getResidence().equals(empty)){
+
+        }else{
+
+            personalId.setResidence(personalId.getResidence());
+            System.out.println("Your residence has been updated");
+            success=true;
+        }
+        if(personalId.getIssuedBy().equals(empty)){
+
+        }else{
+
+            personalId.setIssuedBy(personalId.getIssuedBy());
+            System.out.println("Id which has been issued by has been changed. New place is:"+personalId.getIssuedBy());
+            success=true;
+        }
+        if(personalId.getDateOfIssue().equals(empty)){
+
+        }else{
+
+            personalId.setDateOfIssue(personalId.getDateOfIssue());
+            System.out.println("Date of issuse has been changed");
+            success=true;
+        }
+        if(personalId.getPersonalIdentificationNumber().equals(empty)){
+
+        }else{
+            updatedValues.setPersonalIdentificationNumber(personalId.getPersonalIdentificationNumber());
+            System.out.println("You cant change your personal identification number");
+            success=false;
+        }
+
+        for (PersonalId idsa:personalIds) {
+            if(identityCardNumber.equals(idsa.getIdentityCardNumber())){
+                updatedData.add(updatedValues);
+            }else{
+                updatedData.add(idsa);
+            }
+        }
+        upd.deleteFile(upd);
+        for (PersonalId ids:updatedData) {
+            writeToTextFile(ids,upd);
+            success=true;
+        }
+        System.out.println("New object"+updatedValues);
+        return success;
     }
 
     @Override

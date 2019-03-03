@@ -18,6 +18,17 @@ public class PersonalId {
 
     public char[] availableValues=new char[]{'F','f','M','m'};
     public PersonalId() {
+        this.identityCardNumber="";
+        this.dateOfExpiry=new Date(0,0,0);
+        this.surname="";
+        this.name="";
+        this.sex=' ';
+        this.citizenship="";
+        this.dateOfBirth=new Date(0,0,0);
+        this.residence="";
+        this.issuedBy="";
+        this.dateOfIssue=new Date(0,0,0);
+        this.personalIdentificationNumber="";
     }
 
     public boolean checkSex(char sex){
