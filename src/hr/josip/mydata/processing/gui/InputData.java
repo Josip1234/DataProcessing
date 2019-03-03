@@ -1,8 +1,10 @@
 package hr.josip.mydata.processing.gui;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class InputData {
+public class InputData extends JFrame {
     private JPanel panel1;
     private JTextField idTextField;
     private JTextField daye;
@@ -22,4 +24,21 @@ public class InputData {
     private JTextField yeari;
     private JTextField pin;
     private JButton saveDataButton;
+
+    public JPanel getPanel1() {
+        return panel1;
+    }
+
+    public InputData() {
+        saveDataButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+    }
+
+
+
+
 }

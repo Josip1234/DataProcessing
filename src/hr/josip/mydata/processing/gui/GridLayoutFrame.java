@@ -141,118 +141,12 @@ public class GridLayoutFrame extends JFrame implements ActionListener {
             listFrame.setVisible(true);
 
         }else if(e.getActionCommand().equals(names[3])){
-            container.validate();
-            removeButtons();
-            container.validate();
 
-
-
-
-
-
-
-            lblNamme=new JLabel("Insert day of expire:");
-            add(lblNamme);
-
-            JTextField day=new JTextField(2);
-            add(day);
-
-            lblNamme=new JLabel("Insert month of expire:");
-            add(lblNamme);
-
-            JTextField month=new JTextField(2);
-            add(month);
-
-            lblNamme=new JLabel("Insert year of expire:");
-            add(lblNamme);
-
-            JTextField year=new JTextField(4);
-            add(year);
-
-            lblNamme=new JLabel("Insert surname:");
-            add(lblNamme);
-
-            JTextField surname=new JTextField(15);
-            add(surname);
-
-            lblNamme=new JLabel("Insert name:");
-            add(lblNamme);
-
-            JTextField name=new JTextField(15);
-            add(name);
-
-            lblNamme=new JLabel("Insert sex:");
-            add(lblNamme);
-
-            JTextField sex=new JTextField(1);
-            add(sex);
-
-            lblNamme=new JLabel("Insert citizenship:");
-            add(lblNamme);
-
-            JTextField citizenship=new JTextField(15);
-            add(citizenship);
-
-
-            lblNamme=new JLabel("Insert day of birth:");
-            add(lblNamme);
-
-            JTextField dayb=new JTextField(2);
-            add(dayb);
-
-            lblNamme=new JLabel("Insert month of birth:");
-            add(lblNamme);
-
-            JTextField monthb=new JTextField(2);
-            add(monthb);
-
-            lblNamme=new JLabel("Insert year of birth:");
-            add(lblNamme);
-
-            JTextField yearb=new JTextField(4);
-            add(yearb);
-
-            lblNamme=new JLabel("Enter residence:");
-            add(lblNamme);
-
-            JTextField residence=new JTextField(15);
-            add(residence);
-
-            lblNamme=new JLabel("Insert Issued by:");
-            add(lblNamme);
-
-            JTextField issuedby=new JTextField(15);
-            add(issuedby);
-
-
-            lblNamme=new JLabel("Insert day of issue:");
-            add(lblNamme);
-
-            JTextField dayi=new JTextField(2);
-            add(dayi);
-
-            lblNamme=new JLabel("Insert month of issue:");
-            add(lblNamme);
-
-            JTextField monthi=new JTextField(2);
-            add(monthi);
-
-            lblNamme=new JLabel("Insert year of issue:");
-            add(lblNamme);
-
-            JTextField yeari=new JTextField(2);
-            add(yeari);
-
-            lblNamme=new JLabel("Insert PIN:");
-            add(lblNamme);
-
-            JTextField pin=new JTextField(15);
-            add(pin);
-
-            JButton button=new JButton("Submit form");
-            add(button);
-
-
+            JFrame frame = new JFrame("InputData");
+            frame.setContentPane(new InputData().getPanel1());
+            frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+            frame.pack();
+            frame.setVisible(true);
 
 
 
