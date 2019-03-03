@@ -71,11 +71,7 @@ public class Main {
 
 
     public static void main(String[] args) throws IOException {
-       File file=new File();
-       PersonalId id=new PersonalId();
-
-       id.setSurname("Marković");
-        System.out.println(file.updateData("12345698888",id,file));
+       swingMenu();
 
 
 

@@ -16,7 +16,8 @@ public class GridLayoutFrame extends JFrame implements ActionListener {
     private final GridLayout gridLayout;
     private final GridLayout gridLayout2;
     private final JButton[] buttons;
-    private static final String[] names = {"Show all data", "Insert new person","Choose person"};
+
+    private static final String[] names = {"Show all data", "Insert new person","Choose person","Forms"};
 
     private boolean toogle = true;
 
@@ -26,7 +27,7 @@ public class GridLayoutFrame extends JFrame implements ActionListener {
     public GridLayoutFrame() {
         super("Main layout");
         gridLayout = new GridLayout(2, 3);
-        gridLayout2=new GridLayout(11,0);
+        gridLayout2=new GridLayout(11,11);
 
         container = getContentPane();
         setLayout(gridLayout);
@@ -138,6 +139,133 @@ public class GridLayoutFrame extends JFrame implements ActionListener {
             listFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
             listFrame.setSize(350,150);
             listFrame.setVisible(true);
+
+        }else if(e.getActionCommand().equals(names[3])){
+            container.validate();
+            removeButtons();
+            container.validate();
+            setLayout(new FlowLayout());
+            container.validate();
+
+            JLabel lblNamme=new JLabel("Identity card number:");
+            add(lblNamme);
+
+            JTextField identityCardNumber=new JTextField(15);
+            add(identityCardNumber);
+
+
+            lblNamme=new JLabel("Insert day of expire:");
+            add(lblNamme);
+
+            JTextField day=new JTextField(2);
+            add(day);
+
+            lblNamme=new JLabel("Insert month of expire:");
+            add(lblNamme);
+
+            JTextField month=new JTextField(2);
+            add(month);
+
+            lblNamme=new JLabel("Insert year of expire:");
+            add(lblNamme);
+
+            JTextField year=new JTextField(4);
+            add(year);
+
+            lblNamme=new JLabel("Insert surname:");
+            add(lblNamme);
+
+            JTextField surname=new JTextField(15);
+            add(surname);
+
+            lblNamme=new JLabel("Insert name:");
+            add(lblNamme);
+
+            JTextField name=new JTextField(15);
+            add(name);
+
+            lblNamme=new JLabel("Insert sex:");
+            add(lblNamme);
+
+            JTextField sex=new JTextField(1);
+            add(sex);
+
+            lblNamme=new JLabel("Insert citizenship:");
+            add(lblNamme);
+
+            JTextField citizenship=new JTextField(15);
+            add(citizenship);
+
+
+            lblNamme=new JLabel("Insert day of birth:");
+            add(lblNamme);
+
+            JTextField dayb=new JTextField(2);
+            add(dayb);
+
+            lblNamme=new JLabel("Insert month of birth:");
+            add(lblNamme);
+
+            JTextField monthb=new JTextField(2);
+            add(monthb);
+
+            lblNamme=new JLabel("Insert year of birth:");
+            add(lblNamme);
+
+            JTextField yearb=new JTextField(4);
+            add(yearb);
+
+            lblNamme=new JLabel("Enter residence:");
+            add(lblNamme);
+
+            JTextField residence=new JTextField(15);
+            add(residence);
+
+            lblNamme=new JLabel("Insert Issued by:");
+            add(lblNamme);
+
+            JTextField issuedby=new JTextField(15);
+            add(issuedby);
+
+
+            lblNamme=new JLabel("Insert day of issue:");
+            add(lblNamme);
+
+            JTextField dayi=new JTextField(2);
+            add(dayi);
+
+            lblNamme=new JLabel("Insert month of issue:");
+            add(lblNamme);
+
+            JTextField monthi=new JTextField(2);
+            add(monthi);
+
+            lblNamme=new JLabel("Insert year of issue:");
+            add(lblNamme);
+
+            JTextField yeari=new JTextField(2);
+            add(yeari);
+
+            lblNamme=new JLabel("Insert PIN:");
+            add(lblNamme);
+
+            JTextField pin=new JTextField(15);
+            add(pin);
+
+            JButton button=new JButton("Submit form");
+            add(button);
+
+
+
+
+
+
+
+
+
+
+
+
 
         }
 
