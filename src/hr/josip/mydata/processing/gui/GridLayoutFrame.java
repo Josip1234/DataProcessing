@@ -144,14 +144,11 @@ public class GridLayoutFrame extends JFrame implements ActionListener {
             container.validate();
             removeButtons();
             container.validate();
-            setLayout(new FlowLayout());
-            container.validate();
 
-            JLabel lblNamme=new JLabel("Identity card number:");
-            add(lblNamme);
 
-            JTextField identityCardNumber=new JTextField(15);
-            add(identityCardNumber);
+
+
+
 
 
             lblNamme=new JLabel("Insert day of expire:");
