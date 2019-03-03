@@ -55,6 +55,7 @@ public interface FileOperations extends Id {
 
    ArrayList<PersonalId> parseData(File file)  throws IOException;
    boolean copyData(File frrom,File to) throws FileNotFoundException;
+   boolean deleteData(String number,File del) throws IOException;
 
 
 }

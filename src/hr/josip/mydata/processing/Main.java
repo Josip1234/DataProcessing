@@ -72,8 +72,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
        File file=new File();
-       File copyFile=new File("copyfile","copyData",".txt");
-        System.out.println(copyFile.copyData(file,copyFile));
+       System.out.println(file.deleteData("12458974441",file));
 
 
 

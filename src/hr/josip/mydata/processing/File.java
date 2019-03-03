@@ -102,6 +102,30 @@ public class File implements FileOperations {
     }
 
     @Override
+    public boolean deleteData(String number, File del) throws IOException {
+        boolean success=false;
+        ArrayList<PersonalId> ids=parseData(del);
+        ArrayList<PersonalId> newIds=new ArrayList<PersonalId>();
+        del.deleteFile(del);
+        for (PersonalId idsa:ids) {
+         if(idsa.getIdentityCardNumber().equals(number)){
+             success=true;
+             continue;
+
+         }else{
+             newIds.add(idsa);
+         }
+        }
+        PrintWriter printWriter=new PrintWriter(new FileOutputStream(del.getFullFileName(),true));
+        for(PersonalId personalId:newIds){
+            printWriter.println(personalId);
+            success=true;
+        }
+        printWriter.close();
+        return success;
+    }
+
+    @Override
     public boolean findItemByPIN(String PIN,File files)  {
         PersonalId ids=new PersonalId();
         boolean found=false;
