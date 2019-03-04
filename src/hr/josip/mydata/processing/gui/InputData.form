@@ -2,7 +2,7 @@
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="hr.josip.mydata.processing.gui.InputData">
   <grid id="27dc6" binding="panel1" default-binding="true" layout-manager="GridBagLayout">
     <constraints>
-      <xy x="20" y="20" width="655" height="450"/>
+      <xy x="20" y="20" width="655" height="444"/>
     </constraints>
     <properties/>
     <border type="none"/>
@@ -245,15 +245,6 @@
           <text value="Enter values:"/>
         </properties>
       </component>
-      <component id="4f7d3" class="javax.swing.JTextField" binding="textField3" default-binding="true">
-        <constraints>
-          <grid row="7" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
-          </grid>
-          <gridbag weightx="0.0" weighty="0.0"/>
-        </constraints>
-        <properties/>
-      </component>
       <component id="d3ccb" class="javax.swing.JComboBox" binding="dayecomboBox1">
         <constraints>
           <grid row="2" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
@@ -319,6 +310,30 @@
         </constraints>
         <properties/>
       </component>
+      <component id="16fed" class="javax.swing.JRadioButton" binding="sexMradioButton1">
+        <constraints>
+          <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="0.0"/>
+        </constraints>
+        <properties>
+          <text value="M"/>
+        </properties>
+      </component>
+      <component id="ef238" class="javax.swing.JRadioButton" binding="sexFRadioButton">
+        <constraints>
+          <grid row="7" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="0.0"/>
+        </constraints>
+        <properties>
+          <text value="F"/>
+        </properties>
+      </component>
     </children>
   </grid>
+  <buttonGroups>
+    <group name="sex">
+      <member id="16fed"/>
+      <member id="ef238"/>
+    </group>
+  </buttonGroups>
 </form>

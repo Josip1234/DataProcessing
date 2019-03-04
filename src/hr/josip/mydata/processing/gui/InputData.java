@@ -18,7 +18,6 @@ public class InputData extends JFrame implements ActionListener {
     private JTextField issuedby;
     private JTextField pin;
     private JButton saveDataButton;
-    private JTextField textField3;
     private JComboBox dayecomboBox1;
     private JComboBox monthecomboBox1;
     private JComboBox yearecomboBox1;
@@ -28,7 +27,9 @@ public class InputData extends JFrame implements ActionListener {
     private JComboBox dayicomboBox1;
     private JComboBox monthicomboBox1;
     private JComboBox yearicomboBox1;
-
+    private JRadioButton sexMradioButton1;
+    private JRadioButton sexFRadioButton;
+    private ButtonGroup sex;
 
     public JPanel getPanel1() {
         for (int i=1;i<=31;i++){
@@ -49,6 +50,18 @@ public class InputData extends JFrame implements ActionListener {
             yearicomboBox1.addItem(k);
         }
 
+        sexFRadioButton=new JRadioButton("F");
+        sexFRadioButton.setMnemonic('F');
+        sexFRadioButton.setActionCommand("F");
+
+        sexMradioButton1=new JRadioButton("M");
+        sexMradioButton1.setMnemonic('M');
+        sexFRadioButton.setActionCommand("M");
+
+        sex=new ButtonGroup();
+        sex.add(sexFRadioButton);
+        sex.add(sexMradioButton1);
+
         return panel1;
     }
 
@@ -60,6 +73,21 @@ public class InputData extends JFrame implements ActionListener {
             public void actionPerformed(ActionEvent e) {
                 System.out.println(idTextField.getText());
                 System.out.println(dayecomboBox1.getSelectedItem());
+
+
+            }
+        });
+
+        sexMradioButton1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println(sexMradioButton1.getText());
+            }
+        });
+        sexFRadioButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println(sexFRadioButton.getText());
             }
         });
     }
@@ -68,5 +96,9 @@ public class InputData extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
+    }
+
+    private void createUIComponents() {
+        // TODO: place custom component creation code here
     }
 }
