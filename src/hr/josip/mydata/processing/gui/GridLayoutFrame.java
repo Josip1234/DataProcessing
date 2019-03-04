@@ -144,6 +144,7 @@ public class GridLayoutFrame extends JFrame implements ActionListener {
 
             JFrame frame = new JFrame("InputData");
             frame.setContentPane(new InputData().getPanel1());
+
             frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
             frame.pack();
             frame.setVisible(true);
