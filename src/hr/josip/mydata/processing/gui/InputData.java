@@ -61,6 +61,7 @@ public class InputData extends JFrame implements ActionListener {
         sexMradioButton1.setMnemonic('M');
         sexFRadioButton.setActionCommand("M");
 
+
         sex=new ButtonGroup();
         sex.add(sexFRadioButton);
         sex.add(sexMradioButton1);
@@ -75,28 +76,83 @@ public class InputData extends JFrame implements ActionListener {
             @Override
             public void actionPerformed(ActionEvent e) {
                 PersonalId id=new PersonalId();
-                id.setIdentityCardNumber(idTextField.getText());
+                if(idTextField.getText().length()==0){
+                    JOptionPane.showMessageDialog(null,"Input cannot be null.","Null input",JOptionPane.ERROR_MESSAGE);
+
+                }else if(idTextField.getText().length()<9){
+                    JOptionPane.showMessageDialog(null,"Input must have more or equal 9 characters.","Length error",JOptionPane.ERROR_MESSAGE);
+                }else if(id.checkStringValue(idTextField.getText())){
+                   JOptionPane.showMessageDialog(null,"Input is not a number!","Format number error",JOptionPane.ERROR_MESSAGE);
+                }else{
+                    id.setIdentityCardNumber(idTextField.getText());
+                }
+
                 id.setDateOfExpiry(new Date((int) dayecomboBox1.getSelectedItem(),(int) monthecomboBox1.getSelectedItem(),
                         (int) yearecomboBox1.getSelectedItem()));
-                id.setSurname(surname.getText());
-                id.setName(name.getText());
+                if(surname.getText().length()==0){
+                    JOptionPane.showMessageDialog(null,"Input cannot be null.","Null input",JOptionPane.ERROR_MESSAGE);
+                }else if(surname.getText().length()>50){
+                    JOptionPane.showMessageDialog(null,"Input must have less or equals than 50 characters.","Length error",JOptionPane.ERROR_MESSAGE);
+                }else{
+                    id.setSurname(surname.getText());
+                }
+                if(name.getText().length()==0){
+                    JOptionPane.showMessageDialog(null,"Input cannot be null.","Null input",JOptionPane.ERROR_MESSAGE);
+                }else if(name.getText().length()>50){
+                    JOptionPane.showMessageDialog(null,"Input must have less or equals than 50 characters.","Length error",JOptionPane.ERROR_MESSAGE);
+                }else{
+                    id.setName(name.getText());
+                }
                 id.setSex(sex1.charAt(0));
-                id.setCitizenship(citizenship.getText());
+                if(citizenship.getText().length()==0){
+                    JOptionPane.showMessageDialog(null,"Input cannot be null.","Null input",JOptionPane.ERROR_MESSAGE);
+                }else if(citizenship.getText().length()>20){
+                    JOptionPane.showMessageDialog(null,"Input must have less or equals than 20 characters.","Length error",JOptionPane.ERROR_MESSAGE);
+                }else{
+                    id.setCitizenship(citizenship.getText());
+                }
+
                 id.setDateOfBirth(new Date(
                         (int) daybcomboBox1.getSelectedItem(),
                         (int) monthbcomboBox1.getSelectedItem(),
                         (int) yearbcomboBox1.getSelectedItem()
                 ));
-                id.setResidence(residence.getText());
-                id.setIssuedBy(issuedby.getText());
+
+                if(residence.getText().length()==0){
+                    JOptionPane.showMessageDialog(null,"Input cannot be null.","Null input",JOptionPane.ERROR_MESSAGE);
+                }else if(residence.getText().length()>100){
+                    JOptionPane.showMessageDialog(null,"Input must have less or equals than 100 characters.","Length error",JOptionPane.ERROR_MESSAGE);
+                }else if(!id.doesStringHaveOneComa(residence.getText())){
+                    JOptionPane.showMessageDialog(null,"This entry must have at least 1 coma and word after comma","Comma error",JOptionPane.ERROR_MESSAGE);
+                }else{
+                    id.setResidence(residence.getText());
+                }
+
+                if(issuedby.getText().length()==0){
+                    JOptionPane.showMessageDialog(null,"Input cannot be null.","Null input",JOptionPane.ERROR_MESSAGE);
+                }else if(issuedby.getText().length()>150){
+                    JOptionPane.showMessageDialog(null,"Input must have less or equals than 150 characters.","Length error",JOptionPane.ERROR_MESSAGE);
+                }else{
+                    id.setIssuedBy(issuedby.getText());
+                }
+
                 id.setDateOfIssue(new Date(
                         (int) dayicomboBox1.getSelectedItem(),
                         (int) monthicomboBox1.getSelectedItem(),
                         (int) yearicomboBox1.getSelectedItem()
                 ));
-                id.setPersonalIdentificationNumber(pin.getText());
-                System.out.println(id);
-                System.out.println(dayecomboBox1.getSelectedItem());
+
+                if(pin.getText().length()==0){
+                    JOptionPane.showMessageDialog(null,"Input cannot be null.","Null input",JOptionPane.ERROR_MESSAGE);
+                }else if(pin.getText().length()<11){
+                    JOptionPane.showMessageDialog(null,"Input must have more or equal than 11 characters.","Length error",JOptionPane.ERROR_MESSAGE);
+                }else if(id.checkStringValue(pin.getText())){
+                    JOptionPane.showMessageDialog(null,"Input is not a number!","Format number error",JOptionPane.ERROR_MESSAGE);
+                }else{
+                    id.setPersonalIdentificationNumber(pin.getText());
+                }
+
+
 
 
             }
@@ -130,4 +186,5 @@ public class InputData extends JFrame implements ActionListener {
     private void createUIComponents() {
         // TODO: place custom component creation code here
     }
+
 }
