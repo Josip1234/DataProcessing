@@ -30,11 +30,11 @@ public class Date {
     public boolean calculateLeapYear(int year){
         boolean isLeap=false;
         if((year%400==0 || year%100!=0 )&&(year%4==0)){
-            System.out.println("Leap year");
+
             isLeap=true;
         }else{
             isLeap=false;
-            System.out.println("Not leap year");
+
         }
         return isLeap;
     }

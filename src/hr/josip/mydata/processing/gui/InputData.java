@@ -76,6 +76,7 @@ public class InputData extends JFrame implements ActionListener {
             @Override
             public void actionPerformed(ActionEvent e) {
                 PersonalId id=new PersonalId();
+
                 if(idTextField.getText().length()==0){
                     JOptionPane.showMessageDialog(null,"Input cannot be null.","Null input",JOptionPane.ERROR_MESSAGE);
 
@@ -87,8 +88,16 @@ public class InputData extends JFrame implements ActionListener {
                     id.setIdentityCardNumber(idTextField.getText());
                 }
 
-                id.setDateOfExpiry(new Date((int) dayecomboBox1.getSelectedItem(),(int) monthecomboBox1.getSelectedItem(),
-                        (int) yearecomboBox1.getSelectedItem()));
+                if(new Date((int) dayecomboBox1.getSelectedItem(),(int) monthecomboBox1.getSelectedItem(),
+                        (int) yearecomboBox1.getSelectedItem()).validateDate((int) dayecomboBox1.getSelectedItem(),(int) monthecomboBox1.getSelectedItem(),
+                        (int) yearecomboBox1.getSelectedItem())){
+                    JOptionPane.showMessageDialog(null,"Invalid date for that year!","Date errror",JOptionPane.ERROR_MESSAGE);
+                }else{
+                    id.setDateOfExpiry(new Date((int) dayecomboBox1.getSelectedItem(),(int) monthecomboBox1.getSelectedItem(),
+                            (int) yearecomboBox1.getSelectedItem()));
+                }
+
+
                 if(surname.getText().length()==0){
                     JOptionPane.showMessageDialog(null,"Input cannot be null.","Null input",JOptionPane.ERROR_MESSAGE);
                 }else if(surname.getText().length()>50){
@@ -112,11 +121,19 @@ public class InputData extends JFrame implements ActionListener {
                     id.setCitizenship(citizenship.getText());
                 }
 
-                id.setDateOfBirth(new Date(
-                        (int) daybcomboBox1.getSelectedItem(),
-                        (int) monthbcomboBox1.getSelectedItem(),
-                        (int) yearbcomboBox1.getSelectedItem()
-                ));
+                if(new Date((int) daybcomboBox1.getSelectedItem(),(int) monthbcomboBox1.getSelectedItem(),
+                        (int) yearbcomboBox1.getSelectedItem()).validateDate((int) daybcomboBox1.getSelectedItem(),(int) monthbcomboBox1.getSelectedItem(),
+                        (int) yearbcomboBox1.getSelectedItem())){
+                    JOptionPane.showMessageDialog(null,"Invalid date for that year!","Date errror",JOptionPane.ERROR_MESSAGE);
+                }else{
+                    id.setDateOfBirth(new Date(
+                            (int) daybcomboBox1.getSelectedItem(),
+                            (int) monthbcomboBox1.getSelectedItem(),
+                            (int) yearbcomboBox1.getSelectedItem()
+                    ));
+                }
+
+
 
                 if(residence.getText().length()==0){
                     JOptionPane.showMessageDialog(null,"Input cannot be null.","Null input",JOptionPane.ERROR_MESSAGE);
@@ -136,11 +153,20 @@ public class InputData extends JFrame implements ActionListener {
                     id.setIssuedBy(issuedby.getText());
                 }
 
-                id.setDateOfIssue(new Date(
-                        (int) dayicomboBox1.getSelectedItem(),
-                        (int) monthicomboBox1.getSelectedItem(),
-                        (int) yearicomboBox1.getSelectedItem()
-                ));
+
+                if(new Date((int) dayicomboBox1.getSelectedItem(),(int) monthicomboBox1.getSelectedItem(),
+                        (int) yearicomboBox1.getSelectedItem()).validateDate((int) dayicomboBox1.getSelectedItem(),(int) monthicomboBox1.getSelectedItem(),
+                        (int) yearicomboBox1.getSelectedItem())){
+                    JOptionPane.showMessageDialog(null,"Invalid date for that year!","Date errror",JOptionPane.ERROR_MESSAGE);
+                }else{
+                    id.setDateOfIssue(new Date(
+                            (int) dayicomboBox1.getSelectedItem(),
+                            (int) monthicomboBox1.getSelectedItem(),
+                            (int) yearicomboBox1.getSelectedItem()
+                    ));
+                }
+
+
 
                 if(pin.getText().length()==0){
                     JOptionPane.showMessageDialog(null,"Input cannot be null.","Null input",JOptionPane.ERROR_MESSAGE);
