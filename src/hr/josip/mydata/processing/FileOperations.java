@@ -57,6 +57,6 @@ public interface FileOperations extends Id {
    boolean copyData(File frrom,File to) throws FileNotFoundException;
    boolean deleteData(String number,File del) throws IOException;
    boolean updateData(String identityCardNumber,PersonalId personalId,File upd) throws IOException;
-
+   String readAbsolute(File file) throws IOException;
 
 }

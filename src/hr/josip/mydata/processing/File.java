@@ -11,11 +11,55 @@ public class File implements FileOperations {
     private String fileName;
     private String extension;
     private static String systemProperty=System.getProperty("user.name");
+    private String absolute;
+
+    public File(String absolute) {
+        this.absolute = absolute;
+    }
+
+    @Override
+    public String readAbsolute(File file) throws IOException {
+        Scanner inputStream=null;
+        String data="";
+        try {
+            inputStream=new Scanner(new FileInputStream(file.getAbsolute()));
+            while (inputStream.hasNextLine()){
+                data+=inputStream.nextLine()+"\n";
+
+            }
+            inputStream.close();
+        } catch (FileNotFoundException e1) {
+            e1.printStackTrace();
+        }
+        return data;
+    }
+
+    public String getAbsolute() {
+        return absolute;
+    }
+
+    public void setAbsolute(String absolute) {
+        this.absolute = absolute;
+    }
+
+    public void setSeparateBy(String separateBy) {
+        this.separateBy = separateBy;
+    }
+
+    public static void setSystemProperty(String systemProperty) {
+        File.systemProperty = systemProperty;
+    }
 
 
     public static String getSystemProperty() {
         return systemProperty;
     }
+
+
+
+
+
+
 
 
 

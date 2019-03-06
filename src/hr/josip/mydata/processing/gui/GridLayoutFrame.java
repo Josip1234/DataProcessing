@@ -10,7 +10,10 @@ import javax.swing.filechooser.FileSystemView;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Scanner;
 
 public class GridLayoutFrame extends JFrame implements ActionListener {
     private final Container container;
@@ -105,16 +108,24 @@ public class GridLayoutFrame extends JFrame implements ActionListener {
 
         }else if(e.getActionCommand().equals(names[3])){
             JFileChooser jfc=new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
-            JFileChooser jFileChooser=new JFileChooser();
+
             int returnValue=jfc.showOpenDialog(null);
-            int returnValue2=jFileChooser.showOpenDialog(null);
-            if(returnValue==JFileChooser.APPROVE_OPTION || returnValue2==JFileChooser.APPROVE_OPTION){
+
+            if(returnValue==JFileChooser.APPROVE_OPTION){
                 java.io.File selectedFile=jfc.getSelectedFile();
                 String copyFrom=selectedFile.getAbsolutePath();
-                java.io.File selectedFileTo=jFileChooser.getSelectedFile();
-                String copyTo=selectedFileTo.getAbsolutePath();
-                System.out.println(copyFrom);
-                System.out.println(copyTo);
+
+
+                File file=new File();
+                copyFrom=copyFrom.replace('\\','/');
+                file.setAbsolute(copyFrom);
+                try {
+                    System.out.println(file.readAbsolute(file));
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+
+
 
 
 
