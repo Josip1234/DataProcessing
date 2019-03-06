@@ -24,6 +24,7 @@ public class UpdateData extends JFrame implements ActionListener {
     private JComboBox yearicomboBox1;
     private JButton UpdateData;
     private JPanel panel1;
+    private JButton Delete;
 
 
     public JPanel getPanel1() {
@@ -97,6 +98,17 @@ public class UpdateData extends JFrame implements ActionListener {
             }
         });
 
+        Delete.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                File file=new File();
+                try {
+                    file.deleteData(id.getIdentityCardNumber(),file);
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+            }
+        });
     }
 
     @Override
