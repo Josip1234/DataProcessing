@@ -1,6 +1,7 @@
 package hr.josip.mydata.processing.gui;
 
 import hr.josip.mydata.processing.Date;
+import hr.josip.mydata.processing.File;
 import hr.josip.mydata.processing.PersonalId;
 
 import javax.swing.*;
@@ -179,7 +180,12 @@ public class InputData extends JFrame implements ActionListener {
                 }
 
 
-
+                 File file=new File();
+                if(!file.findItemByPIN(id.getPersonalIdentificationNumber(),file)){
+                    if(!file.findItem(id.getPersonalIdentificationNumber(),file)){
+                        file.writeToTextFile(id,file);
+                    }
+                };
 
             }
         });

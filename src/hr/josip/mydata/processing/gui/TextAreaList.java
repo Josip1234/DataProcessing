@@ -14,6 +14,7 @@ public class TextAreaList extends JFrame {
         Box box=Box.createHorizontalBox();
 
 
+
         textArea2=new JTextArea(polje[index].toString(),10,15);
 
         box.add(new JScrollPane(textArea2));

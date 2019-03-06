@@ -16,7 +16,7 @@ public class GridLayoutFrame extends JFrame implements ActionListener {
     private final GridLayout gridLayout;
     private final GridLayout gridLayout2;
     private final JButton[] buttons;
-
+    private File file;
     private static final String[] names = {"Show all data", "Choose person","Insert new person"};
 
     private boolean toogle = true;
@@ -101,16 +101,6 @@ public class GridLayoutFrame extends JFrame implements ActionListener {
             frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
             frame.pack();
             frame.setVisible(true);
-
-
-
-
-
-
-
-
-
-
 
         }
 

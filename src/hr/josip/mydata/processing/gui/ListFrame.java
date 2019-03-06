@@ -47,11 +47,22 @@ public class ListFrame extends JFrame {
             public void valueChanged(ListSelectionEvent e) {
                 if (e.getValueIsAdjusting() == false) {
 
+                    JFrame frame2 = new JFrame("Update Data");
 
+                    frame2.setContentPane(new UpdateData(details, list.getSelectedIndex()).getPanel1());
+
+                    frame2.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+                    frame2.pack();
+                    frame2.setVisible(true);
+
+                    /*
                         TextAreaList textAreaFrame = new TextAreaList(details,list.getSelectedIndex());
                         textAreaFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
                         textAreaFrame.setSize(1366, 768);
-                        textAreaFrame.setVisible(true);
+                        textAreaFrame.setVisible(true);*/
+
+
+
 
                 }
 

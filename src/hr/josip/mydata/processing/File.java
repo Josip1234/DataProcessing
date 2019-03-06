@@ -194,9 +194,8 @@ public class File implements FileOperations {
 
         }else{
 
-            updatedValues.setSex(personalId.getSex());
-            System.out.println("Your sex has been changed.");
-            success=true;
+            System.out.println("Your sex cannot be changed.");
+            success=false;
         }
         if(personalId.getCitizenship().equals(empty)){
 
