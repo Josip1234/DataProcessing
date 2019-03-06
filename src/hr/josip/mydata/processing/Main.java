@@ -71,7 +71,7 @@ public class Main {
 
 
     public static void main(String[] args) throws IOException {
-       swingMenu();
+        System.out.println(File.getSystemProperty());
 
 
 
