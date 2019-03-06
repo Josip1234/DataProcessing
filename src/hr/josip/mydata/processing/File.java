@@ -12,9 +12,12 @@ public class File implements FileOperations {
     private String extension;
     private static String systemProperty=System.getProperty("user.name");
 
+
     public static String getSystemProperty() {
         return systemProperty;
     }
+
+
 
     @Override
     public ArrayList<PersonalId> parseData(File file) throws IOException {
@@ -328,8 +331,8 @@ public class File implements FileOperations {
 
     public File() {
 
-        this.directory="personalDirectory";
-        this.separateBy="/";
+        this.directory="C:\\Users\\"+getSystemProperty()+"\\IdeaProjects\\DataProcessing\\"+"personalDirectory";
+        this.separateBy="\\";
         this.fileName="personalIdData";
         this.extension=".dat";
     }

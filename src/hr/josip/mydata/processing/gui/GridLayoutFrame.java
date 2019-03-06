@@ -6,6 +6,7 @@ import hr.josip.mydata.processing.PersonalId;
 import jdk.nashorn.internal.scripts.JO;
 
 import javax.swing.*;
+import javax.swing.filechooser.FileSystemView;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -17,7 +18,7 @@ public class GridLayoutFrame extends JFrame implements ActionListener {
     private final GridLayout gridLayout2;
     private final JButton[] buttons;
     private File file;
-    private static final String[] names = {"Show all data", "Choose person","Insert new person"};
+    private static final String[] names = {"Show all data", "Choose person","Insert new person","Copy data"};
 
     private boolean toogle = true;
 
@@ -102,6 +103,23 @@ public class GridLayoutFrame extends JFrame implements ActionListener {
             frame.pack();
             frame.setVisible(true);
 
+        }else if(e.getActionCommand().equals(names[3])){
+            JFileChooser jfc=new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
+            JFileChooser jFileChooser=new JFileChooser();
+            int returnValue=jfc.showOpenDialog(null);
+            int returnValue2=jFileChooser.showOpenDialog(null);
+            if(returnValue==JFileChooser.APPROVE_OPTION || returnValue2==JFileChooser.APPROVE_OPTION){
+                java.io.File selectedFile=jfc.getSelectedFile();
+                String copyFrom=selectedFile.getAbsolutePath();
+                java.io.File selectedFileTo=jFileChooser.getSelectedFile();
+                String copyTo=selectedFileTo.getAbsolutePath();
+                System.out.println(copyFrom);
+                System.out.println(copyTo);
+
+
+
+
+            }
         }
 
     }
