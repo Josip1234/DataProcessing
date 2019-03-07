@@ -56,12 +56,46 @@ public class File implements FileOperations {
     }
 
 
+    @Override
+    public ArrayList<PersonalId> parseDataAbsolute(File file) throws IOException {
+        ArrayList<PersonalId> id=new ArrayList<PersonalId>();
+        PersonalId personalId=new PersonalId();
+        Scanner input=new Scanner(new FileInputStream(file.getAbsolute()));
+        input.useDelimiter(","); //delimitor is one or more spaces
+
+        try {
+            while(input.hasNext()){
+
+                personalId.setIdentityCardNumber(input.next().trim());
+                personalId.setDateOfExpiry(Date.parseDate(input.next()));
+                personalId.setSurname(input.next());
+                personalId.setName(input.next());
+                personalId.setSex(input.next().charAt(0));
+                personalId.setCitizenship(input.next());
+                personalId.setDateOfBirth(Date.parseDate(input.next()));
+                personalId.setResidence(input.next()+","+input.next());
+                personalId.setIssuedBy(input.next());
+                personalId.setDateOfIssue(Date.parseDate(input.next()));
+                personalId.setPersonalIdentificationNumber(input.next());
+
+                id.add(personalId);
+                personalId=new PersonalId();
 
 
 
 
 
 
+            }
+        } catch (Exception e) {
+
+        }
+        input.close();
+
+
+
+        return id;
+    }
 
     @Override
     public ArrayList<PersonalId> parseData(File file) throws IOException {
@@ -163,6 +197,26 @@ public class File implements FileOperations {
         }
         return ids;
     }
+
+    @Override
+    public boolean copyAbsoluteData(File from, File to) throws IOException {
+        boolean copied=false;
+        PrintWriter printWriter=new PrintWriter(new FileOutputStream(to.getAbsolute(),true));
+        try {
+            ArrayList<PersonalId> id=parseDataAbsolute(from);
+            for (PersonalId ids:id) {
+                printWriter.println(ids);
+            }
+            printWriter.close();
+            copied=true;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+        return copied;
+    }
+
     @Override
     public boolean copyData(File from, File to) throws FileNotFoundException {
         boolean copied=false;

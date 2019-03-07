@@ -108,19 +108,26 @@ public class GridLayoutFrame extends JFrame implements ActionListener {
 
         }else if(e.getActionCommand().equals(names[3])){
             JFileChooser jfc=new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
-
+            JFileChooser jfc2=new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
             int returnValue=jfc.showOpenDialog(null);
+            int return2=jfc2.showOpenDialog(null);
 
-            if(returnValue==JFileChooser.APPROVE_OPTION){
+            if(returnValue==JFileChooser.APPROVE_OPTION || return2==JFileChooser.APPROVE_OPTION){
                 java.io.File selectedFile=jfc.getSelectedFile();
+                java.io.File selectedFile2=jfc2.getSelectedFile();
                 String copyFrom=selectedFile.getAbsolutePath();
-
+                String copyTo=selectedFile2.getAbsolutePath();
 
                 File file=new File();
                 copyFrom=copyFrom.replace('\\','/');
+                copyTo=copyTo.replace('\\','/');
                 file.setAbsolute(copyFrom);
+                File file2=new File();
+                file2.setAbsolute(copyTo);
+                File file3=new File();
+
                 try {
-                    System.out.println(file.readAbsolute(file));
+                    file3.copyAbsoluteData(file,file2);
                 } catch (IOException e1) {
                     e1.printStackTrace();
                 }

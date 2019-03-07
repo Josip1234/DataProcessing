@@ -58,5 +58,7 @@ public interface FileOperations extends Id {
    boolean deleteData(String number,File del) throws IOException;
    boolean updateData(String identityCardNumber,PersonalId personalId,File upd) throws IOException;
    String readAbsolute(File file) throws IOException;
+   boolean copyAbsoluteData(File from,File to) throws IOException;
+   ArrayList<PersonalId> parseDataAbsolute(File file)  throws IOException;
 
 }
